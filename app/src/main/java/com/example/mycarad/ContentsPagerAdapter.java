@@ -1,43 +1,29 @@
 package com.example.mycarad;
 
-
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentPagerAdapter;
 
-public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
+import java.util.ArrayList;
 
-    private int pageCount;
-    public ContentsPagerAdapter(FragmentManager fm, int pageCount) {
+public class ContentsPagerAdapter extends FragmentPagerAdapter {
+    private ArrayList<Fragment> items;
+
+    public ContentsPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.pageCount = pageCount;
+        items = new ArrayList<Fragment>();
+        items.add(new HomeFragment());
     }
+
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-     /*   switch (position) {
-            case 0:
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
-            case 1:
-             //   CaruserTabFragment caruserTab = new CaruserTabFragment();
-             //   return CaruserTabFragment;
-            case 2:
-             //   AdvisorTabFragment advisorTab = new AdvisorTabFragment();
-             //   return advisorTabFragment;
-            default:
-             //   return null;*/
-     return new HomeFragment();
-        }
-
-
-
-
-    @Override
-
-    public int getCount() {
-
-        return pageCount;
-
+        return items.get(position);
     }
 
+    @Override
+    public int getCount() {
+        return items.size();
+    }
 }
