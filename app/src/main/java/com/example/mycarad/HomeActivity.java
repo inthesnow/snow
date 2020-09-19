@@ -15,42 +15,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-public class HomeActivity<mViewPager, mContentsPagerAdapter> extends AppCompatActivity {
-    private Context mContext;
-    private TabLayout mTabLayout;
+public class HomeActivity extends AppCompatActivity {
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ContentsPagerAdapter contentsPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mTabLayout = (TabLayout) findViewById(R.id.layout_tab);
+        tabLayout = (TabLayout) findViewById(R.id.layout_tab);
 
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("홈")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("광고할래요")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("광고해주세요")));
+        tabLayout.addTab(tabLayout.newTab().setCustomView(createTabView("홈")));
+        tabLayout.addTab(tabLayout.newTab().setCustomView(createTabView("광고할래요")));
+        tabLayout.addTab(tabLayout.newTab().setCustomView(createTabView("광고해주세요")));
+
+
+        viewPager = (ViewPager) findViewById(R.id.pager_content);
+        contentsPagerAdapter = new ContentsPagerAdapter(
+                getSupportFragmentManager(), tabLayout.getTabCount());
+
+        viewPager.setAdapter(contentsPagerAdapter);
+        viewPager.addOnPageChangeListener(
+                new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
     }
-    mViewPager = (ViewPager) findViewById(R.id.pager_content);
-    mContentsPagerAdapter = new <getSupportFragmentManager> ContentsPagerAdapter(
-            getSupportFragmentManager(), mTabLayout.getTabCount());
 
-        mViewPager.setAdapter(mContentsPagerAdapter);
-        mViewPager.addOnPageChangeListener(
-                new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-        @Override
-        public void onTabSelected(TabLayout.Tab tab) {
-            mViewPager.setCurrentItem(tab.getPosition());
-        }
-        @Override
-        public void onTabUnselected(TabLayout.Tab tab) {
-        }
-        @Override
-        public void onTabReselected(TabLayout.Tab tab) {
-        }
-    });
-}
     private View createTabView(String tabName) {
-        View tabView = LayoutInflater.from(mContext).inflate(R.layout.custom_tab, null);
+        View tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);
         txt_name.setText(tabName);
         return tabView;
