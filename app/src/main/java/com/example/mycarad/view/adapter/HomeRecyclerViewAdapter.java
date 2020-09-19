@@ -1,4 +1,4 @@
-package com.example.mycarad;
+package com.example.mycarad.view.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,15 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mycarad.R;
 import com.example.mycarad.data.HomeData;
 
 import java.util.ArrayList;
 
-class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
+public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<HomeData> list;
 
-    HomeRecyclerViewAdapter(ArrayList<HomeData> homeDataList) {
+    public HomeRecyclerViewAdapter(ArrayList<HomeData> homeDataList) {
         this.list = homeDataList;
     }
 

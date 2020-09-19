@@ -14,19 +14,19 @@
             android:id="@+id/tab_Item1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tab1" />
+            android:text="홈" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tab_Item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tab2" />
+            android:text="광고해주세요" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tab_Item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tab3" />
+            android:text="광고할래요" />
 
     </com.google.android.material.tabs.TabLayout>
 
