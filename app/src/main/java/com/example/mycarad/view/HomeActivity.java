@@ -9,6 +9,8 @@ import com.example.mycarad.R;
 import com.example.mycarad.view.adapter.ContentsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -24,7 +26,14 @@ public class HomeActivity extends AppCompatActivity {
         //연동
         TabLayout tab = findViewById((R.id.tab));
         tab.setupWithViewPager(viewPager);
-
+        //텝 이미지
+        ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.home);
+        images.add(R.drawable.car);
+        images.add(R.drawable.money);
+        //텝카운트
+        int count = tab.getTabCount();
+        for(int i=0; i<count; i++) tab.getTabAt(i).setIcon(images.get(i));
     }
 
 
