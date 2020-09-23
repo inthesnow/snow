@@ -1,6 +1,8 @@
-package com.example.mycarad.view;
+package com.example.mycarad.view.fragment;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -35,6 +37,5 @@ public class HomeActivity extends AppCompatActivity {
         int count = tab.getTabCount();
         for(int i=0; i<count; i++) tab.getTabAt(i).setIcon(images.get(i));
     }
-
 
 }

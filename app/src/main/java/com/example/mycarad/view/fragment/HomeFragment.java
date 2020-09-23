@@ -17,7 +17,7 @@ import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment  {
 
     @Override
     public View onCreateView(
@@ -42,5 +42,4 @@ public class HomeFragment extends Fragment {
         HomeRecyclerViewAdapter carUserAdapter = new HomeRecyclerViewAdapter(DummyData.data());
         carUserRecyclerView.setAdapter(carUserAdapter);
     }
-
 }
