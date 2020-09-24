@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.mycarad.view.fragment.AdvisorFragment;
 import com.example.mycarad.view.fragment.CaruserFragment;
-import com.example.mycarad.view.fragment.HomeFragment;
+import com.example.mycarad.view.activity.HomeFragment;
 
 import java.util.ArrayList;
 

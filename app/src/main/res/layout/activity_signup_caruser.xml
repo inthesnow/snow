@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/signIdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="아이디"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/signIdEditView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/signIdEditView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:minWidth="40dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/signIdTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_weight="0.1"
+        app:layout_constraintStart_toEndOf="@id/signIdTextView"
+        app:layout_constraintTop_toTopOf="@+id/signIdTextView"
+        tools:hint="아이디를 입력해주세요."></EditText>
+
+    <Button
+        android:id="@+id/signIdCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="중복확인"
+        app:layout_constraintEnd_toStartOf="@+id/signIdCheckTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIdTextView"></Button>
+
+    <TextView
+        android:id="@+id/signIdCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signIdCheck"
+        app:layout_constraintTop_toBottomOf="@+id/signIdEditView"
+        tools:text="사용 가능한 아이디 입니다.">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/signPwTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/signIdTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIdCheck">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/signPwEditView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:minWidth="50dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/signPwTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/signPwTextView"
+        app:layout_constraintTop_toTopOf="@+id/signPwTextView"
+        tools:hint="비밀번호를 입력해주세요."></EditText>
+
+    <TextView
+        android:id="@+id/signPwCheckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="재입력"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/signPwCheckEditView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPwTextView">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/signPwCheckEditView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:minWidth="50dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/signPwCheckTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/signPwCheckTextView"
+        app:layout_constraintTop_toTopOf="@+id/signPwCheckTextView"
+        tools:hint="비밀번호를 입력해주세요."></EditText>
+
+    <TextView
+        android:id="@+id/signNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="닉네임"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/signNameEditView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPwCheckTextView">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/signNameEditView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:minWidth="50dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/signNameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/signNameTextView"
+        app:layout_constraintTop_toTopOf="@+id/signNameTextView"
+        tools:hint="비밀번호를 입력해주세요."></EditText>
+</androidx.constraintlayout.widget.ConstraintLayout>
