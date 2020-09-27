@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.fragment.HomeActivity"
+            android:name=".view.activity.HomeActivity"
             android:label="mycarad">
         </activity>
         <activity

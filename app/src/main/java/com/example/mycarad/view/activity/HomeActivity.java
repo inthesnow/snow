@@ -1,4 +1,4 @@
-package com.example.mycarad.view.fragment;
+package com.example.mycarad.view.activity;
 
 import android.os.Bundle;
 import android.view.View;

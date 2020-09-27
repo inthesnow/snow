@@ -43,7 +43,6 @@
         app:layout_constraintTop_toBottomOf="@+id/errorTextView" />
 
     <EditText
-        android:minWidth="50dp"
         android:id="@+id/idEditView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -51,6 +50,7 @@
         android:gravity="center"
         android:maxLength="14"
         android:maxLines="1"
+        android:minWidth="50dp"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@id/idTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,6 @@
         app:layout_constraintTop_toBottomOf="@+id/idTextView" />
 
     <EditText
-        android:minWidth="50dp"
         android:id="@+id/passEditView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,6 +81,7 @@
         android:gravity="center"
         android:maxLength="14"
         android:maxLines="1"
+        android:minWidth="50dp"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@id/passTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,18 +92,21 @@
         tools:hint="패스워드를 입력해주세요." />
 
     <Button
+        android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/login_button_backrground"
+        android:enabled="false"
         android:text="로그인"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passEditView"
-        android:id="@+id/loginButton"/>
+        app:layout_constraintTop_toBottomOf="@id/passEditView" />
 
     <Button
+        android:id="@+id/signupButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -112,6 +115,5 @@
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        android:id="@+id/signupButton"/>
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

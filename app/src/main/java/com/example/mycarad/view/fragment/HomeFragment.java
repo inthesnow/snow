@@ -1,4 +1,4 @@
-package com.example.mycarad.view.activity;
+package com.example.mycarad.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/attendeeField"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    tools:ignore="MissingConstraints"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:hint="참석자"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/attendeeEdit"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="힌트"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:textSize="18sp" />
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/attendeeEdit2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="힌트"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:textSize="18sp"
-        />
+    <TextView
+        android:id="@+id/signIdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="아이디"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/signIdEditView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</com.google.android.material.textfield.TextInputLayout>
+    </TextView>
+
+    <EditText
+        android:id="@+id/signIdEditView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:minWidth="40dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/signIdTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_weight="0.1"
+        app:layout_constraintStart_toEndOf="@id/signIdTextView"
+        app:layout_constraintTop_toTopOf="@+id/signIdTextView"
+        tools:hint="아이디를 입력해주세요."></EditText>
+</androidx.constraintlayout.widget.ConstraintLayout>
