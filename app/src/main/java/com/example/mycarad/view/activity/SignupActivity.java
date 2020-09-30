@@ -1,48 +1,45 @@
 package com.example.mycarad.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.CompoundButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
-import com.example.mycarad.view.adapter.ContentsPagerAdapter;
-import com.google.android.material.tabs.TabLayout;
+import com.example.mycarad.databinding.ActivitySignupBinding;
 
-import java.util.ArrayList;
+public class SignupActivity extends AppCompatActivity {
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Button caruesrBtn;
-    Button advisorBtn;
-
+    private ActivitySignupBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
 
-        caruesrBtn = findViewById(R.id.choiceCaruser);
-        advisorBtn = findViewById(R.id.choiceAdvisor);
-
-        caruesrBtn.setOnClickListener((View.OnClickListener) this);
-        advisorBtn.setOnClickListener((View.OnClickListener) this);
-
+        binding.carButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    binding.carUserLayout.setVisibility(View.VISIBLE);
+                    binding.advisorLayout.setVisibility(View.GONE);
+                } else {
+                    binding.carUserLayout.setVisibility(View.GONE);
+                    binding.advisorLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
-    @Override
+  /*  @Override
     public void onClick(View v){
         if (v == caruesrBtn) {
             setContentView(R.layout.activity_signup_caruser);
         } else if (v == advisorBtn) {
             setContentView(R.layout.activity_signup_advisor);
         }
-    }
+    }*/
 }
 

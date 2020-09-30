@@ -17,4 +17,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/baseTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
 </resources>
