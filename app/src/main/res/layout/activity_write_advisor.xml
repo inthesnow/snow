@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/writeAdvTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="제목"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvTitleEdit"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/writeAdvTitleEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="제목을 입력해주세요."
+        app:layout_constraintBottom_toBottomOf="@+id/writeAdvTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/writeAdvTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeAdvTitleTextView"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/writeAdvline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvTitleTextView"
+        tools:background="@color/black" />
+
+    <TextView
+        android:id="@+id/writeAdvNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="업체명"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvNameEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvline" />
+
+    <TextView
+        android:id="@+id/writeAdvNameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/writeAdvNameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/writeAdvNameTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeAdvNameTextView"
+        tools:ignore="MissingConstraints"
+        tools:text="고정값" />
+
+    <TextView
+        android:id="@+id/writeAdvAreaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="선호지역"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvNameEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvNameTextView" />
+
+    <CheckBox
+        android:id="@+id/writeAdvAreaCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소형"
+        app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvAreaCheck2"
+        app:layout_constraintStart_toEndOf="@id/writeAdvAreaTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView">
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/writeAdvAreaCheck2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중형"
+        app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvAreaCheck3"
+        app:layout_constraintStart_toEndOf="@id/writeAdvAreaCheck"
+        app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView">
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/writeAdvAreaCheck3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="대형"
+        app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/writeAdvAreaCheck2"
+        app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView">
+    </CheckBox>
+
+    <TextView
+        android:id="@+id/writeAdvFavorPartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="선호 부위"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvFavorPartEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvAreaTextView" />
+
+    <EditText
+        android:id="@+id/writeAdvFavorPartEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="선호 부위"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/writeAdvFavorPartTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvAreaTextView" />
+
+    <TextView
+        android:id="@+id/writeAdvConectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="연락처"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/writeAdvConectEdit"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvFavorPartTextView" />
+
+    <EditText
+        android:id="@+id/writeAdvConectEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="연락수단을 남겨주세요."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/writeAdvConectTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvFavorPartTextView" />
+
+    <TextView
+        android:id="@+id/writeAdvWriteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="세부 사항"
+        app:layout_constraintEnd_toEndOf="@+id/writeAdvConectTextView"
+        app:layout_constraintStart_toStartOf="@+id/writeAdvConectTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvConectTextView" />
+
+    <EditText
+        android:id="@+id/writeAdvWriteEdit"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/write_edit_background"
+        android:gravity="center"
+        android:hint="글 내용을 적어주세요."
+        android:minLines="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeAdvWriteTextView" />
+
+    <Button
+        android:id="@+id/writeAdvClearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/login_button_backrground"
+        android:enabled="false"
+        android:text="글 게시"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/writeAdvWriteEdit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

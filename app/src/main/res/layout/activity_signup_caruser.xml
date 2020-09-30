@@ -160,7 +160,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/signNameTextView"
         app:layout_constraintTop_toTopOf="@+id/signNameTextView"
-        tools:hint="비밀번호를 입력해주세요."></EditText>
+        tools:hint="닉네임을 입력해주세요."></EditText>
 
     <Button
         android:id="@+id/signNameCheck"
@@ -243,7 +243,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/signCarNameTextView"
         app:layout_constraintTop_toTopOf="@+id/signCarNameTextView"
-        tools:hint="비밀번호를 입력해주세요."></EditText>
+        tools:hint="차이름을 입력해주세요."></EditText>
 
 
     <TextView
@@ -268,16 +268,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:maxLength="14"
-        android:maxLines="1"
-        android:minWidth="50dp"
-        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/signTuningTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/signTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/signTuningTextView"
-        tools:hint="비밀번호를 입력해주세요."></CheckBox>
+        app:layout_constraintTop_toTopOf="@+id/signTuningTextView">
+
+    </CheckBox>
 
     <Button
         android:layout_width="wrap_content"
