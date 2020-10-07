@@ -1,182 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <EditText
-        android:id="@+id/signCaruserIdEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="아이디를 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/signCaruserIdCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/signCaruserIdCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/signCaruserIdEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/signCaruserIdEditText"
-        app:layout_constraintTop_toTopOf="@+id/signCaruserIdEditText" />
-
-    <EditText
-        android:id="@+id/signCaruserPwEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="비밀번호를 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCaruserIdEditText"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/signCaruserPwCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="다시 한 번 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCaruserPwEditText"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <EditText
-        android:id="@+id/signCaruserNameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="닉네임을 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/signCaruserNameCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCaruserPwCheck"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <Button
-        android:id="@+id/signCaruserNameCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/signCaruserNameEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/signCaruserNameEditText"
-        app:layout_constraintTop_toTopOf="@+id/signCaruserNameEditText" />
-
-    <TextView
-        android:id="@+id/signCarKindTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:minWidth="50dp"
-        android:text="차 종"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/signCarKindSpinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCaruserNameEditText"></TextView>
-
-    <Spinner
-        android:id="@+id/signCarKindSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="@+id/signCarKindTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/signCarKindTextView"
-        app:layout_constraintTop_toTopOf="@+id/signCarKindTextView"
-        tools:ignore="MissingConstraints"
-        >
-    </Spinner>
-
-    <EditText
-        android:id="@+id/signCarNameEditView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:maxLength="14"
-        android:maxLines="1"
-        android:minWidth="50dp"
-        android:singleLine="true"
-        app:layout_constraintTop_toBottomOf="@+id/signCarKindTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:hint="차이름을 입력해주세요."></EditText>
+    xmlns:tools="http://schemas.android.com/tools">
 
 
-    <TextView
-        android:id="@+id/signTuningTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:minWidth="50dp"
-        android:text="튜닝여부"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/signTuningCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCarNameEditView"></TextView>
-
-    <CheckBox
-        android:id="@+id/signTuningCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/signTuningTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/signTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/signTuningTextView">
-    </CheckBox>
-
-    <EditText
-        android:id="@+id/signCaruserBusinessEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="튜닝여부를 작성해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signTuningTextView"
-        tools:ignore="MissingConstraints" />
-
-
-    <Button
-        android:id="@+id/signSignUp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="회원가입"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signCaruserBusinessEditText" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/signCaruserIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="아이디를 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/signCaruserIdCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/signCaruserIdCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/signCaruserIdEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/signCaruserIdEditText"
+            app:layout_constraintTop_toTopOf="@+id/signCaruserIdEditText" />
+
+        <EditText
+            android:id="@+id/signCaruserPwEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="비밀번호를 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCaruserIdEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signCaruserPwCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="다시 한 번 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCaruserPwEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signCaruserNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="닉네임을 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/signCaruserNameCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCaruserPwCheck"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/signCaruserNameCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/signCaruserNameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/signCaruserNameEditText"
+            app:layout_constraintTop_toTopOf="@+id/signCaruserNameEditText" />
+
+        <TextView
+            android:id="@+id/signCarKindTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:minWidth="50dp"
+            android:text="차 종"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/signCarKindSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCaruserNameEditText" />
+
+        <Spinner
+            android:id="@+id/signCarKindSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="@+id/signCarKindTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/signCarKindTextView"
+            app:layout_constraintTop_toTopOf="@+id/signCarKindTextView"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/signCarNameEditView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:maxLength="14"
+            android:maxLines="1"
+            android:minWidth="50dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCarKindTextView"
+            tools:hint="차이름을 입력해주세요." />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/signTuningTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:minWidth="50dp"
+            android:text="튜닝여부"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/signTuningCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCarNameEditView" />
+
+        <CheckBox
+            android:id="@+id/signTuningCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/signTuningTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/signTuningTextView"
+            app:layout_constraintTop_toTopOf="@+id/signTuningTextView"></CheckBox>
+
+        <EditText
+            android:id="@+id/signCaruserBusinessEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints=""
+            android:hint="튜닝여부를 작성해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signTuningTextView"
+            tools:ignore="MissingConstraints" />
+
+
+        <Button
+            android:id="@+id/signSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="회원가입"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signCaruserBusinessEditText" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
