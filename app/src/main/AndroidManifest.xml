@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".view.activity.SignupActivity"
-            android:label="mycarad">
+            android:label="회원가입">
         </activity>
     </application>
 

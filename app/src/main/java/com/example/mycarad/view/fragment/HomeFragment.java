@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,7 @@ import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment  {
+public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -42,4 +43,5 @@ public class HomeFragment extends Fragment  {
         HomeRecyclerViewAdapter carUserAdapter = new HomeRecyclerViewAdapter(DummyData.data());
         carUserRecyclerView.setAdapter(carUserAdapter);
     }
+
 }

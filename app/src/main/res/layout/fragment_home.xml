@@ -10,22 +10,27 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="50dp"
         android:text="광고해주세요"
         app:layout_constraintEnd_toStartOf="@+id/advisorNavi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/baseTextColor"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/advisorNavi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="광고주 게시판으로"
+        android:text="더보기"
         app:layout_constraintBottom_toBottomOf="@+id/advisorTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/advisorTextView"
-        app:layout_constraintTop_toTopOf="@+id/advisorTextView" />
+        app:layout_constraintTop_toTopOf="@+id/advisorTextView"
+        android:background="@drawable/my_button"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/advisorRecyclerView"
@@ -33,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/advisorNavi"
+        app:layout_constraintTop_toBottomOf="@+id/advisorTextView"
         tools:itemCount="4"
         tools:listitem="@layout/home_recycleview_item" />
 
@@ -42,22 +47,27 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="50dp"
         android:text="광고할래요"
         app:layout_constraintEnd_toStartOf="@+id/caruserNavi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/advisorRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/advisorRecyclerView"
+        android:textColor="@color/baseTextColor"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/caruserNavi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="광고주 게시판으로"
+        android:text="더보기"
         app:layout_constraintBottom_toBottomOf="@+id/caruserTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/caruserTextView"
-        app:layout_constraintTop_toTopOf="@+id/caruserTextView" />
+        app:layout_constraintTop_toTopOf="@+id/caruserTextView"
+        android:background="@drawable/my_button"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/caruserRecyclerView"
@@ -65,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/caruserNavi"
+        app:layout_constraintTop_toBottomOf="@+id/caruserTextView"
         tools:itemCount="4"
         tools:listitem="@layout/home_recycleview_item" />
 
