@@ -33,11 +33,11 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
-                    binding.carUserLayout.setVisibility(View.VISIBLE);
-                    binding.advisorLayout.setVisibility(View.GONE);
+                    binding.carUserLayout.signUpLayout.setVisibility(View.VISIBLE);
+                    binding.advisorLayout.signUpLayout.setVisibility(View.GONE);
                 } else {
-                    binding.carUserLayout.setVisibility(View.GONE);
-                    binding.advisorLayout.setVisibility(View.VISIBLE);
+                    binding.carUserLayout.signUpLayout.setVisibility(View.GONE);
+                    binding.advisorLayout.signUpLayout.setVisibility(View.VISIBLE);
                 }
             }
         });
