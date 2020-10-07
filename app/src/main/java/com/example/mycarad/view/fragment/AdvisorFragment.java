@@ -29,7 +29,7 @@ public class AdvisorFragment extends Fragment {
         RecyclerView advisorRecyclerView = view.findViewById(R.id.advisorRecyclerView);
         advisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(DummyData.data());
+        HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
         advisorRecyclerView.setAdapter(advisorAdapter);
 
     }

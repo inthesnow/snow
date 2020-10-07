@@ -16,9 +16,11 @@ import java.util.ArrayList;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
 
+    private Context context;
     private ArrayList<HomeData> list;
 
-    public HomeRecyclerViewAdapter(ArrayList<HomeData> homeDataList) {
+    public HomeRecyclerViewAdapter(Context context, ArrayList<HomeData> homeDataList) {
+        this.context = context;
         this.list = homeDataList;
     }
 

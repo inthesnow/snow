@@ -29,7 +29,7 @@ public class CaruserFragment extends Fragment {
         RecyclerView caruserRecyclerView = view.findViewById(R.id.caruserRecyclerView);
         caruserRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeRecyclerViewAdapter caruserAdapter = new HomeRecyclerViewAdapter(DummyData.data());
+        HomeRecyclerViewAdapter caruserAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
         caruserRecyclerView.setAdapter(caruserAdapter);
 
     }
