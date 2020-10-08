@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity {
         binding.carButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b) {
+                if (b) {
                     binding.carUserLayout.signUpLayout.setVisibility(View.VISIBLE);
                     binding.advisorLayout.signUpLayout.setVisibility(View.GONE);
                 } else {
@@ -43,6 +43,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         arrayList = new ArrayList<>();
+        arrayList.add("선택");
         arrayList.add("대형");
         arrayList.add("중형");
         arrayList.add("소형");
@@ -56,24 +57,14 @@ public class SignupActivity extends AppCompatActivity {
         carKind.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(),arrayList.get(i)+"가 선택되었습니다.",
+                Toast.makeText(getApplicationContext(), arrayList.get(i) + "이 선택되었습니다.",
                         Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
 
     }
-
-
-  /*  @Override
-    public void onClick(View v){
-        if (v == caruesrBtn) {
-            setContentView(R.layout.activity_signup_caruser);
-        } else if (v == advisorBtn) {
-            setContentView(R.layout.activity_signup_advisor);
-        }
-    }*/
 }
-

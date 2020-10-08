@@ -31,8 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         //텝 이미지
         ArrayList<Integer> images = new ArrayList<>();
         images.add(R.drawable.home);
-        images.add(R.drawable.car);
         images.add(R.drawable.money);
+        images.add(R.drawable.car);
         //텝카운트
         int count = tab.getTabCount();
         for(int i=0; i<count; i++) tab.getTabAt(i).setIcon(images.get(i));
