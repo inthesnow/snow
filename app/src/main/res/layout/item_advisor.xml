@@ -2,14 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp">
 
     <TextView
         android:id="@+id/advTitleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="광고할래요"
+        android:textSize="20sp"
+        android:textColor="@color/baseTextColor"
         tools:ignore="MissingConstraints"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintStart_toEndOf="@+id/advTimeTextView"/>
@@ -20,7 +23,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="1"
         android:text="시간"
-        tools:ignore="MissingConstraints"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/advTitleTextView"
         app:layout_constraintStart_toEndOf="@+id/advTitleTextView"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -29,33 +33,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/advAreaTextView"
         android:text="지역"
-        tools:ignore="MissingConstraints"
+        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/advTitleTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/advMoneyTextView"/>
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <ImageView
-        android:id="@+id/advItemBar"
-        android:layout_width="0.5dp"
-        android:layout_height="0dp"
-        android:background="?android:attr/listDivider"
-        tools:ignore="MissingConstraints"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintTop_toTopOf="@+id/advAreaTextView"
-        app:layout_constraintBottom_toBottomOf="@+id/advAreaTextView"
-        app:layout_constraintStart_toEndOf="@+id/advAreaTextView"
-        app:layout_constraintEnd_toStartOf="@+id/advMoneyTextView"
-        tools:background="@color/black"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/advMoneyTextView"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:text="금액"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/advTitleTextView"
-        app:layout_constraintStart_toEndOf="@+id/advItemBar" />
-
+        android:id="@id/advLineBar"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toBottomOf="@id/advAreaTextView"
+        android:layout_marginTop="10dp"
+        android:background="@color/divider"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.CaruserData;
+import com.example.mycarad.data.CaruserDummyData;
 import com.example.mycarad.data.DummyData;
+import com.example.mycarad.view.adapter.CaruserRecyclerViewAdapter;
 import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
 
 public class CaruserFragment extends Fragment {
@@ -29,7 +32,7 @@ public class CaruserFragment extends Fragment {
         RecyclerView caruserRecyclerView = view.findViewById(R.id.caruserRecyclerView);
         caruserRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeRecyclerViewAdapter caruserAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
+        CaruserRecyclerViewAdapter caruserAdapter = new CaruserRecyclerViewAdapter(getContext(), CaruserDummyData.data());
         caruserRecyclerView.setAdapter(caruserAdapter);
 
     }

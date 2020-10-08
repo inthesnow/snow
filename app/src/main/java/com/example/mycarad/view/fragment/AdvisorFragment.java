@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.DummyData;
-import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
+import com.example.mycarad.data.AdvisorDummyData;
+import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;
 
 public class AdvisorFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class AdvisorFragment extends Fragment {
         RecyclerView advisorRecyclerView = view.findViewById(R.id.advisorRecyclerView);
         advisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
+        AdvisorRecyclerViewAdapter advisorAdapter = new AdvisorRecyclerViewAdapter(getContext(), AdvisorDummyData.data());
         advisorRecyclerView.setAdapter(advisorAdapter);
 
     }

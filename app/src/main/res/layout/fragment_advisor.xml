@@ -5,25 +5,14 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/advisorTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="광고해주세요"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="10dp"
         android:id="@+id/advisorRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/advisorTextView"
-        tools:listitem="@layout/home_recycleview_item"
-        tools:itemCount="10"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
+        tools:listitem="@layout/item_advisor"
+        tools:itemCount="10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
