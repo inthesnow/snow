@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/writeCaruserTitleEdit"
+        android:id="@+id/writeDriverTitleEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -20,15 +20,15 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/writeCaruserline"
+        android:id="@+id/writeDriverline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserTitleEdit"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverTitleEdit"
         tools:background="@color/black" />
 
     <TextView
-        android:id="@+id/writeCaruserCarKindTextView"
+        android:id="@+id/writeDriverCarKindTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -38,22 +38,22 @@
         android:text="차종"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserline"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverline"
         app:layout_goneMarginTop="20dp" />
 
     <TextView
-        android:id="@+id/writeCaruserCarKindEdit"
+        android:id="@+id/writeDriverCarKindEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/writeCaruserCarKindTextView"
+        app:layout_constraintBottom_toBottomOf="@id/writeDriverCarKindTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/writeCaruserCarKindTextView"
-        app:layout_constraintTop_toTopOf="@+id/writeCaruserCarKindTextView"
+        app:layout_constraintStart_toEndOf="@id/writeDriverCarKindTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeDriverCarKindTextView"
         tools:ignore="MissingConstraints"
         tools:text="고정값" />
 
     <TextView
-        android:id="@+id/writeCaruserCarNameTextView"
+        android:id="@+id/writeDriverCarNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -63,22 +63,22 @@
         android:text="차명"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserCarKindTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverCarKindTextView"
         app:layout_goneMarginTop="20dp" />
 
     <TextView
-        android:id="@+id/writeCaruserCarNameEdit"
+        android:id="@+id/writeDriverCarNameEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/writeCaruserCarNameTextView"
+        app:layout_constraintBottom_toBottomOf="@id/writeDriverCarNameTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/writeCaruserCarNameTextView"
-        app:layout_constraintTop_toTopOf="@+id/writeCaruserCarNameTextView"
+        app:layout_constraintStart_toEndOf="@id/writeDriverCarNameTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeDriverCarNameTextView"
         tools:ignore="MissingConstraints"
         tools:text="고정값" />
 
     <TextView
-        android:id="@+id/writeCaruserTuningTextView"
+        android:id="@+id/writeDriverTuningTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -88,20 +88,20 @@
         android:text="튜닝여부"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserCarNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverCarNameTextView"
         app:layout_goneMarginTop="20dp"></TextView>
 
     <CheckBox
-        android:id="@+id/writeCaruserTuningCheck"
+        android:id="@+id/writeDriverTuningCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/writeCaruserTuningTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/writeDriverTuningTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/writeCaruserTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/writeCaruserTuningTextView"></CheckBox>
+        app:layout_constraintStart_toEndOf="@id/writeDriverTuningTextView"
+        app:layout_constraintTop_toTopOf="@+id/writeDriverTuningTextView"></CheckBox>
 
     <EditText
-        android:id="@+id/writeCaruserTuningEdit"
+        android:id="@+id/writeDriverTuningEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -112,24 +112,24 @@
         android:gravity="start"
         android:hint="튜닝 세부사항을 적어주세요"
         android:minLines="3"
-        app:layout_constraintEnd_toEndOf="@+id/writeCaruserTuningCheck"
+        app:layout_constraintEnd_toEndOf="@+id/writeDriverTuningCheck"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/writeCaruserTuningTextView"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserTuningTextView"
+        app:layout_constraintStart_toStartOf="@+id/writeDriverTuningTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverTuningTextView"
         app:layout_goneMarginTop="20dp" />
 
     <TextView
-        android:id="@+id/writeCaruserWriteTextView"
+        android:id="@+id/writeDriverWriteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="세부 사항"
-        app:layout_constraintEnd_toEndOf="@+id/writeCaruserTuningTextView"
-        app:layout_constraintStart_toStartOf="@+id/writeCaruserTuningTextView"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserTuningEdit" />
+        app:layout_constraintEnd_toEndOf="@+id/writeDriverTuningTextView"
+        app:layout_constraintStart_toStartOf="@+id/writeDriverTuningTextView"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverTuningEdit" />
 
     <EditText
-        android:id="@+id/writeCaruserWriteEdit"
+        android:id="@+id/writeDriverWriteEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -140,14 +140,14 @@
         android:gravity="start"
         android:hint="글 내용을 적어주세요."
         android:minLines="5"
-        app:layout_constraintEnd_toEndOf="@+id/writeCaruserTuningEdit"
+        app:layout_constraintEnd_toEndOf="@+id/writeDriverTuningEdit"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/writeCaruserTuningEdit"
-        app:layout_constraintTop_toBottomOf="@+id/writeCaruserWriteTextView"
+        app:layout_constraintStart_toStartOf="@+id/writeDriverTuningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/writeDriverWriteTextView"
         app:layout_goneMarginTop="20dp" />
 
     <Button
-        android:id="@+id/writeCaruserClearButton"
+        android:id="@+id/writeDriverClearButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -158,7 +158,7 @@
         android:text="글 게시"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/writeCaruserWriteEdit" />
+        app:layout_constraintTop_toBottomOf="@id/writeDriverWriteEdit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

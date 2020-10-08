@@ -1,6 +1,6 @@
 package com.example.mycarad.data;
 
-public class CaruserData {
+public class DriverData {
     private String title;
     private String time;
     private String area;
@@ -28,7 +28,7 @@ public class CaruserData {
         this.carKind = carKind;
     }
 
-    public CaruserData(String title, String time, String area, String carKind) {
+    public DriverData(String title, String time, String area, String carKind) {
         this.title = title;
         this.time = time;
         this.area = area;

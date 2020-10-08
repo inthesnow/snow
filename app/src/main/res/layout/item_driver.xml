@@ -6,56 +6,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/caruserTitleTextView"
+        android:id="@+id/driverTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="광고할래요"
         tools:ignore="MissingConstraints"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/caruserTimeTextView"/>
+        app:layout_constraintStart_toEndOf="@+id/driverTimeTextView"/>
 
     <TextView
-        android:id="@+id/caruserTimeTextView"
+        android:id="@+id/driverTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="1"
         android:text="시간"
         tools:ignore="MissingConstraints"
-        app:layout_constraintStart_toEndOf="@+id/caruserTitleTextView"
+        app:layout_constraintStart_toEndOf="@+id/driverTitleTextView"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/caruserAreaTextView"
+        android:id="@+id/driverAreaTextView"
         android:text="지역"
         tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/caruserTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/driverTitleTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/caruserCarnameTextView"/>
+        app:layout_constraintEnd_toStartOf="@id/driverCarnameTextView"/>
     <ImageView
-        android:id="@+id/caruserItemBar"
+        android:id="@+id/driverItemBar"
         android:layout_width="0.5dp"
         android:layout_height="0dp"
         android:background="?android:attr/listDivider"
         tools:ignore="MissingConstraints"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        app:layout_constraintTop_toTopOf="@+id/caruserAreaTextView"
-        app:layout_constraintBottom_toBottomOf="@+id/caruserAreaTextView"
-        app:layout_constraintStart_toEndOf="@+id/caruserAreaTextView"
-        app:layout_constraintEnd_toStartOf="@+id/caruserCarnameTextView"
+        app:layout_constraintTop_toTopOf="@+id/driverAreaTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/driverAreaTextView"
+        app:layout_constraintStart_toEndOf="@+id/driverAreaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/driverCarnameTextView"
         tools:background="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/caruserCarnameTextView"
+        android:id="@+id/driverCarnameTextView"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:text="차종"
         tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/caruserTitleTextView"
-        app:layout_constraintStart_toEndOf="@+id/caruserItemBar" />
+        app:layout_constraintTop_toBottomOf="@+id/driverTitleTextView"
+        app:layout_constraintStart_toEndOf="@+id/driverItemBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

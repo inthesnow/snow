@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.mycarad.view.fragment.AdvisorFragment;
-import com.example.mycarad.view.fragment.CaruserFragment;
+import com.example.mycarad.view.fragment.DriverFragment;
 import com.example.mycarad.view.fragment.HomeFragment;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class ContentsPagerAdapter extends FragmentPagerAdapter {
         items = new ArrayList<>();
         items.add(new HomeFragment());
         items.add(new AdvisorFragment());
-        items.add(new CaruserFragment());
+        items.add(new DriverFragment());
 
         titles = new ArrayList<>();
         titles.add("홈");

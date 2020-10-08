@@ -7,29 +7,29 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/infoChangeCaruserIdEditText"
+        android:id="@+id/infoChangeDriverIdEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:hint="아이디를 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeCaruserIdCheck"
+        app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverIdCheck"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/infoChangeCaruserIdCheck"
+        android:id="@+id/infoChangeDriverIdCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeCaruserIdEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverIdEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeCaruserIdEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeCaruserIdEditText" />
+        app:layout_constraintStart_toEndOf="@+id/infoChangeDriverIdEditText"
+        app:layout_constraintTop_toTopOf="@+id/infoChangeDriverIdEditText" />
 
     <EditText
-        android:id="@+id/infoChangeCaruserPwEditText"
+        android:id="@+id/infoChangeDriverPwEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -38,11 +38,11 @@
         android:hint="비밀번호를 입력해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCaruserIdEditText"
+        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverIdEditText"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/infoChangeCaruserPwCheck"
+        android:id="@+id/infoChangeDriverPwCheck"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -51,31 +51,31 @@
         android:hint="다시 한 번 입력해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCaruserPwEditText"
+        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwEditText"
         tools:ignore="MissingConstraints"></EditText>
 
     <EditText
-        android:id="@+id/infoChangeCaruserNameEditText"
+        android:id="@+id/infoChangeDriverNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:hint="닉네임을 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeCaruserNameCheck"
+        app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverNameCheck"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCaruserPwCheck"
+        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwCheck"
         tools:ignore="MissingConstraints"></EditText>
 
     <Button
-        android:id="@+id/infoChangeCaruserNameCheck"
+        android:id="@+id/infoChangeDriverNameCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeCaruserNameEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverNameEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeCaruserNameEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeCaruserNameEditText" />
+        app:layout_constraintStart_toEndOf="@+id/infoChangeDriverNameEditText"
+        app:layout_constraintTop_toTopOf="@+id/infoChangeDriverNameEditText" />
 
     <TextView
         android:id="@+id/infoChangeCarKindTextView"
@@ -90,7 +90,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/infoChangeCarKindSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCaruserNameEditText"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverNameEditText"></TextView>
 
     <Spinner
         android:id="@+id/infoChangeCarKindSpinner"
@@ -150,7 +150,7 @@
         app:layout_constraintTop_toTopOf="@+id/infoChangeTuningTextView"></CheckBox>
 
     <EditText
-        android:id="@+id/infoChangeCaruserBusinessEditText"
+        android:id="@+id/infoChangeDriverBusinessEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -174,7 +174,7 @@
         android:text="수정완료"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCaruserBusinessEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverBusinessEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

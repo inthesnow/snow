@@ -35,11 +35,11 @@ public class HomeFragment extends Fragment {
         HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
         advisorRecyclerView.setAdapter(advisorAdapter);
 
-        RecyclerView carUserRecyclerView = view.findViewById(R.id.caruserRecyclerView);
-        carUserRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        RecyclerView driverRecyclerView = view.findViewById(R.id.driverRecyclerView);
+        driverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeRecyclerViewAdapter carUserAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
-        carUserRecyclerView.setAdapter(carUserAdapter);
+        HomeRecyclerViewAdapter driverAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
+        driverRecyclerView.setAdapter(driverAdapter);
 
         Button goToAdvisorButton = view.findViewById(R.id.advisorNavi);
         goToAdvisorButton.setOnClickListener(new View.OnClickListener() {

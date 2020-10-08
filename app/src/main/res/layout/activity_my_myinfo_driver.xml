@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/myInfoCaruserImage"
+        android:id="@+id/myInfoDriverImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/myInfoCaruserNameTextView"
+        android:id="@+id/myInfoDriverNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -26,10 +26,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoCaruserImage" />
+        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverImage" />
 
     <TextView
-        android:id="@+id/myInfoCaruserCarKind"
+        android:id="@+id/myInfoDriverCarKind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -37,10 +37,10 @@
         android:textColor="@color/baseTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoCaruserNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverNameTextView" />
 
     <TextView
-        android:id="@+id/myInfoCaruserCarName"
+        android:id="@+id/myInfoDriverCarName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -48,10 +48,10 @@
         android:textColor="@color/baseTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoCaruserCarKind" />
+        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverCarKind" />
 
     <TextView
-        android:id="@+id/myInfoCaruserTuningTextView"
+        android:id="@+id/myInfoDriverTuningTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -60,16 +60,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoCaruserCarName" />
+        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverCarName" />
 
     <CheckBox
-        android:id="@+id/myInfoCaruserTuningCheckBox"
+        android:id="@+id/myInfoDriverTuningCheckBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/myInfoCaruserTuningTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/myInfoDriverTuningTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/myInfoCaruserTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/myInfoCaruserTuningTextView" />
+        app:layout_constraintStart_toEndOf="@+id/myInfoDriverTuningTextView"
+        app:layout_constraintTop_toTopOf="@+id/myInfoDriverTuningTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

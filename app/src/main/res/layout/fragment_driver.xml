@@ -6,11 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/caruserRecyclerView"
+        android:id="@+id/driverRecyclerView"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/caruserTextView"
+        app:layout_constraintTop_toBottomOf="@+id/driverTextView"
         tools:listitem="@layout/home_recycleview_item"
         tools:itemCount="10" />
 

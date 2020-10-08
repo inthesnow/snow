@@ -33,10 +33,10 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    binding.carUserLayout.signUpLayout.setVisibility(View.VISIBLE);
+                    binding.driverLayout.signUpLayout.setVisibility(View.VISIBLE);
                     binding.advisorLayout.signUpLayout.setVisibility(View.GONE);
                 } else {
-                    binding.carUserLayout.signUpLayout.setVisibility(View.GONE);
+                    binding.driverLayout.signUpLayout.setVisibility(View.GONE);
                     binding.advisorLayout.signUpLayout.setVisibility(View.VISIBLE);
                 }
             }
@@ -52,7 +52,7 @@ public class SignupActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item,
                 arrayList);
 
-        carKind = binding.carUserLayout.signCarKindSpinner;
+        carKind = binding.driverLayout.signCarKindSpinner;
         carKind.setAdapter(arrayAdapter);
         carKind.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

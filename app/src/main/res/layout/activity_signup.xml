@@ -73,8 +73,8 @@
 
             <include
                 android:visibility="gone"
-                android:id="@+id/carUserLayout"
-                layout="@layout/activity_signup_caruser"
+                android:id="@+id/driverLayout"
+                layout="@layout/activity_signup_driver"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

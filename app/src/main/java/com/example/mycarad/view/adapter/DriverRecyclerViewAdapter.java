@@ -12,19 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.CaruserData;
+import com.example.mycarad.data.DriverData;
 import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
 
-public class CaruserRecyclerViewAdapter extends RecyclerView.Adapter<CaruserRecyclerViewAdapter.ViewHolder> {
+public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<CaruserData> list;
+    private ArrayList<DriverData> list;
 
-    public CaruserRecyclerViewAdapter(Context context, ArrayList<CaruserData> CaruserDataList) {
+    public DriverRecyclerViewAdapter(Context context, ArrayList<DriverData> DriverDataList) {
         this.context = context;
-        this.list = CaruserDataList;
+        this.list = DriverDataList;
     }
 
     @NonNull
@@ -32,8 +32,8 @@ public class CaruserRecyclerViewAdapter extends RecyclerView.Adapter<CaruserRecy
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.item_caruser, parent, false);
-        CaruserRecyclerViewAdapter.ViewHolder  vh = new CaruserRecyclerViewAdapter.ViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.item_driver, parent, false);
+        DriverRecyclerViewAdapter.ViewHolder  vh = new DriverRecyclerViewAdapter.ViewHolder(view);
 
         return vh;
     }
@@ -53,18 +53,18 @@ public class CaruserRecyclerViewAdapter extends RecyclerView.Adapter<CaruserRecy
             super(itemView);
         }
 
-        public void bind(CaruserData Caruser) {
-            TextView tv1 = itemView.findViewById(R.id.caruserTitleTextView);
-            tv1.setText(Caruser.getTitle());
+        public void bind(DriverData Driver) {
+            TextView tv1 = itemView.findViewById(R.id.driverTitleTextView);
+            tv1.setText(Driver.getTitle());
 
-            TextView tv2 = itemView.findViewById(R.id.caruserTimeTextView);
-            tv2.setText(Caruser.getTime());
+            TextView tv2 = itemView.findViewById(R.id.driverTimeTextView);
+            tv2.setText(Driver.getTime());
 
-            TextView tv3 = itemView.findViewById(R.id.caruserAreaTextView);
-            tv3.setText(Caruser.getArea());
+            TextView tv3 = itemView.findViewById(R.id.driverAreaTextView);
+            tv3.setText(Driver.getArea());
 
-            TextView tv4 = itemView.findViewById(R.id.caruserCarnameTextView);
-            tv4.setText(Caruser.getCarKind());
+            TextView tv4 = itemView.findViewById(R.id.driverCarnameTextView);
+            tv4.setText(Driver.getCarKind());
 
             tv1.setOnClickListener(new View.OnClickListener() {
                 @Override
