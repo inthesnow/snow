@@ -8,6 +8,6 @@
     <color name="gray">#d8d8d8</color>
     <color name="black">#000000</color>
 
-    <color name="divider">#787878</color>
+    <color name="divider">#FFFFFF</color>
     <color name="baseTextColor">#111111</color>
 </resources>
