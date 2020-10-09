@@ -6,175 +6,189 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/infoChangeDriverIdEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="아이디를 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverIdCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/infoChangeDriverIdCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverIdEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeDriverIdEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeDriverIdEditText" />
-
-    <EditText
-        android:id="@+id/infoChangeDriverPwEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="비밀번호를 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverIdEditText"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/infoChangeDriverPwCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="다시 한 번 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwEditText"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <EditText
-        android:id="@+id/infoChangeDriverNameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="닉네임을 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverNameCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwCheck"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <Button
-        android:id="@+id/infoChangeDriverNameCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverNameEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeDriverNameEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeDriverNameEditText" />
-
-    <TextView
-        android:id="@+id/infoChangeCarKindTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:minWidth="50dp"
-        android:text="차 종"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/infoChangeCarKindSpinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverNameEditText"></TextView>
-
-    <Spinner
-        android:id="@+id/infoChangeCarKindSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeCarKindTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeCarKindTextView"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeCarKindTextView"
-        tools:ignore="MissingConstraints"></Spinner>
-
-    <EditText
-        android:id="@+id/infoChangeCarNameEditView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:maxLength="14"
-        android:maxLines="1"
-        android:minWidth="50dp"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCarKindTextView"
-        tools:hint="차이름을 입력해주세요."></EditText>
-
-
-    <TextView
-        android:id="@+id/infoChangeTuningTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:minWidth="50dp"
-        android:text="튜닝여부"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/infoChangeTuningCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeCarNameEditView"></TextView>
-
-    <CheckBox
-        android:id="@+id/infoChangeTuningCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeTuningTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/infoChangeTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeTuningTextView"></CheckBox>
-
-    <EditText
-        android:id="@+id/infoChangeDriverBusinessEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="튜닝여부를 작성해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeTuningTextView"
-        tools:ignore="MissingConstraints" />
-
-
-    <Button
-        android:id="@+id/infoChangeinfoChangeUp"
+    <include
+        android:id="@+id/includeAppBar"
+        layout="@layout/widget_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/my_button"
-        android:text="수정완료"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverBusinessEditText" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeAppBar"
+        app:layout_constraintVertical_bias="0">
+
+        <EditText
+            android:id="@+id/infoChangeDriverIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="아이디를 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverIdCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/infoChangeDriverIdCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverIdEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/infoChangeDriverIdEditText"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeDriverIdEditText" />
+
+        <EditText
+            android:id="@+id/infoChangeDriverPwEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="비밀번호를 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverIdEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/infoChangeDriverPwCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="다시 한 번 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwEditText"
+            tools:ignore="MissingConstraints"></EditText>
+
+        <EditText
+            android:id="@+id/infoChangeDriverNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="닉네임을 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/infoChangeDriverNameCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverPwCheck"
+            tools:ignore="MissingConstraints"></EditText>
+
+        <Button
+            android:id="@+id/infoChangeDriverNameCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeDriverNameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/infoChangeDriverNameEditText"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeDriverNameEditText" />
+
+        <TextView
+            android:id="@+id/infoChangeCarKindTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:minWidth="50dp"
+            android:text="차 종"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/infoChangeCarKindSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverNameEditText"></TextView>
+
+        <Spinner
+            android:id="@+id/infoChangeCarKindSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeCarKindTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/infoChangeCarKindTextView"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeCarKindTextView"
+            tools:ignore="MissingConstraints"></Spinner>
+
+        <EditText
+            android:id="@+id/infoChangeCarNameEditView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:maxLength="14"
+            android:maxLines="1"
+            android:minWidth="50dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeCarKindTextView"
+            tools:hint="차이름을 입력해주세요."></EditText>
 
 
+        <TextView
+            android:id="@+id/infoChangeTuningTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:minWidth="50dp"
+            android:text="튜닝여부"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/infoChangeTuningCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeCarNameEditView"></TextView>
+
+        <CheckBox
+            android:id="@+id/infoChangeTuningCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeTuningTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/infoChangeTuningTextView"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeTuningTextView"></CheckBox>
+
+        <EditText
+            android:id="@+id/infoChangeDriverBusinessEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="튜닝여부를 작성해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeTuningTextView"
+            tools:ignore="MissingConstraints" />
+
+
+        <Button
+            android:id="@+id/infoChangeinfoChangeUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/my_button"
+            android:text="수정완료"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeDriverBusinessEditText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

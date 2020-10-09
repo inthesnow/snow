@@ -6,114 +6,128 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/infoChangeAdIdEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="아이디를 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeAdIdCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/infoChangeAdIdCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeAdIdEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeAdIdEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeAdIdEditText" />
-
-    <EditText
-        android:id="@+id/infoChangeAdPwEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="비밀번호를 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdIdEditText"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/infoChangeAdPwCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="다시 한 번 입력해주세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdPwEditText"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <EditText
-        android:id="@+id/infoChangeAdNameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="닉네임을 입력해주세요"
-        app:layout_constraintEnd_toStartOf="@+id/infoChangeAdNameCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdPwCheck"
-        tools:ignore="MissingConstraints"></EditText>
-
-    <Button
-        android:id="@+id/infoChangeAdNameCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toBottomOf="@+id/infoChangeAdNameEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/infoChangeAdNameEditText"
-        app:layout_constraintTop_toTopOf="@+id/infoChangeAdNameEditText" />
-
-    <EditText
-        android:id="@+id/infoChangeAdKindEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="업종"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdNameEditText"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/infoChangeAdBusinessEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="업체명"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdKindEditText"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/infoChangeinfoChangeUp"
+    <include
+        android:id="@+id/includeAppBar"
+        layout="@layout/widget_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/my_button"
-        android:text="수정완료"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoChangeAdBusinessEditText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeAppBar"
+        app:layout_constraintVertical_bias="0">
+
+        <EditText
+            android:id="@+id/infoChangeAdIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="아이디를 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/infoChangeAdIdCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/infoChangeAdIdCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeAdIdEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/infoChangeAdIdEditText"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeAdIdEditText" />
+
+        <EditText
+            android:id="@+id/infoChangeAdPwEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="비밀번호를 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdIdEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/infoChangeAdPwCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="다시 한 번 입력해주세요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdPwEditText"
+            tools:ignore="MissingConstraints"></EditText>
+
+        <EditText
+            android:id="@+id/infoChangeAdNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="닉네임을 입력해주세요"
+            app:layout_constraintEnd_toStartOf="@+id/infoChangeAdNameCheck"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdPwCheck"
+            tools:ignore="MissingConstraints"></EditText>
+
+        <Button
+            android:id="@+id/infoChangeAdNameCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@+id/infoChangeAdNameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/infoChangeAdNameEditText"
+            app:layout_constraintTop_toTopOf="@+id/infoChangeAdNameEditText" />
+
+        <EditText
+            android:id="@+id/infoChangeAdKindEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="업종"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdNameEditText"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/infoChangeAdBusinessEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="업체명"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdKindEditText"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/infoChangeinfoChangeUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/my_button"
+            android:text="수정완료"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoChangeAdBusinessEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

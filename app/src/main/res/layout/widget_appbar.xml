@@ -5,10 +5,12 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolBar"/>
+            android:id="@+id/toolBar"
+            android:background="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/appBarTitle"
@@ -17,7 +19,8 @@
             android:layout_gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:text="잘나오는지좀 보자 이 타이틀아"/>
+            tools:text="잘나오는지좀 보자 이 타이틀아"
+            android:textColor="@color/baseTextColor"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -5,197 +5,208 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/viewAdvTitleEdit"
+    <include
+        android:id="@+id/includeAppBar"
+        layout="@layout/widget_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="제목을 입력해주세요."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/viewAdvline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvTitleEdit"
-        tools:background="@color/black" />
-
-    <TextView
-        android:id="@+id/viewAdvNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="업체명"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvline" />
-
-    <TextView
-        android:id="@+id/viewAdvNameEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/viewAdvNameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/viewAdvNameTextView"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvNameTextView"
-        tools:ignore="MissingConstraints"
-        tools:text="고정값" />
-
-    <TextView
-        android:id="@+id/viewAdvAreaTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="선호지역"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvNameTextView" />
-
-    <CheckBox
-        android:id="@+id/viewAdvAreaCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="소형"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
-        app:layout_constraintEnd_toStartOf="@+id/viewAdvAreaCheck2"
-        app:layout_constraintStart_toEndOf="@id/viewAdvAreaTextView"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView">
-    </CheckBox>
-
-    <CheckBox
-        android:id="@+id/viewAdvAreaCheck2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="중형"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
-        app:layout_constraintEnd_toStartOf="@+id/viewAdvAreaCheck3"
-        app:layout_constraintStart_toEndOf="@id/viewAdvAreaCheck"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView">
-    </CheckBox>
-
-    <CheckBox
-        android:id="@+id/viewAdvAreaCheck3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="대형"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/viewAdvAreaCheck2"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView">
-    </CheckBox>
-
-    <TextView
-        android:id="@+id/viewAdvFavorPartTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="선호 부위"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvAreaTextView" />
-
-    <EditText
-        android:id="@+id/viewAdvFavorPartEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="선호 부위"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/viewAdvFavorPartTextView"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvAreaTextView"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvFavorPartTextView"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAdvFavorPartTextView"/>
-
-    <TextView
-        android:id="@+id/viewAdvConectTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="연락처"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvFavorPartTextView" />
-
-    <EditText
-        android:id="@+id/viewAdvConectEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="연락수단을 남겨주세요."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/viewAdvConectTextView"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvFavorPartTextView"
-        app:layout_constraintTop_toTopOf="@+id/viewAdvConectTextView"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAdvConectTextView"/>
-
-    <TextView
-        android:id="@+id/viewAdvviewTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="세부 사항"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvConectTextView" />
-
-    <EditText
-        android:id="@+id/viewAdvviewEdit"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/view_edit_background"
-        android:gravity="start"
-        android:hint="글 내용을 적어주세요."
-        android:minLines="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewAdvviewTextView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeAppBar"
+        app:layout_constraintVertical_bias="0">
 
+        <TextView
+            android:id="@+id/viewAdvTitleEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="제목을 입력해주세요."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/viewAdvline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvTitleEdit"
+            tools:background="@color/black" />
+
+        <TextView
+            android:id="@+id/viewAdvNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="업체명"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvline" />
+
+        <TextView
+            android:id="@+id/viewAdvNameEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/viewAdvNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewAdvNameTextView"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvNameTextView"
+            tools:ignore="MissingConstraints"
+            tools:text="고정값" />
+
+        <TextView
+            android:id="@+id/viewAdvAreaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="선호지역"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvNameTextView" />
+
+        <CheckBox
+            android:id="@+id/viewAdvAreaCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="소형"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
+            app:layout_constraintEnd_toStartOf="@+id/viewAdvAreaCheck2"
+            app:layout_constraintStart_toEndOf="@id/viewAdvAreaTextView"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView"></CheckBox>
+
+        <CheckBox
+            android:id="@+id/viewAdvAreaCheck2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="중형"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
+            app:layout_constraintEnd_toStartOf="@+id/viewAdvAreaCheck3"
+            app:layout_constraintStart_toEndOf="@id/viewAdvAreaCheck"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView"></CheckBox>
+
+        <CheckBox
+            android:id="@+id/viewAdvAreaCheck3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="대형"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdvAreaTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewAdvAreaCheck2"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvAreaTextView"></CheckBox>
+
+        <TextView
+            android:id="@+id/viewAdvFavorPartTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="선호 부위"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvAreaTextView" />
+
+        <EditText
+            android:id="@+id/viewAdvFavorPartEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="선호 부위"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdvFavorPartTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewAdvFavorPartTextView"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvAreaTextView"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvFavorPartTextView" />
+
+        <TextView
+            android:id="@+id/viewAdvConectTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="연락처"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvFavorPartTextView" />
+
+        <EditText
+            android:id="@+id/viewAdvConectEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="연락수단을 남겨주세요."
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdvConectTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewAdvConectTextView"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvFavorPartTextView"
+            app:layout_constraintTop_toTopOf="@+id/viewAdvConectTextView" />
+
+        <TextView
+            android:id="@+id/viewAdvviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="세부 사항"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvConectTextView" />
+
+        <EditText
+            android:id="@+id/viewAdvviewEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/view_edit_background"
+            android:gravity="start"
+            android:hint="글 내용을 적어주세요."
+            android:minLines="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdvviewTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

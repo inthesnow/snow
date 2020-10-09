@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
-        setSupportActionBar(binding.includAppBar.toolBar);
+        setSupportActionBar(binding.includeAppBar.toolBar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
