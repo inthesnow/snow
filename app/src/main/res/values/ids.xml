@@ -2,4 +2,5 @@
 <resources>
     <item name="txt_name" type="id" />
     <item name="advLineBar" type="id" />
+    <item name="driverLineBar" type="id" />
 </resources>

@@ -61,10 +61,7 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             tv2.setText(Driver.getTime());
 
             TextView tv3 = itemView.findViewById(R.id.driverAreaTextView);
-            tv3.setText(Driver.getArea());
-
-            TextView tv4 = itemView.findViewById(R.id.driverCarnameTextView);
-            tv4.setText(Driver.getCarKind());
+            tv3.setText(Driver.getArea() + "/" + Driver.getCarKind());
 
             tv1.setOnClickListener(new View.OnClickListener() {
                 @Override
