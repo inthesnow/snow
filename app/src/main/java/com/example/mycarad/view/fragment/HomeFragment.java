@@ -1,5 +1,7 @@
 package com.example.mycarad.view.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.DummyData;
+import com.example.mycarad.view.activity.HomeActivity;
+import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;
 import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
+
+import java.time.Instant;
 
 public class HomeFragment extends Fragment {
 
@@ -45,7 +51,17 @@ public class HomeFragment extends Fragment {
         goToAdvisorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "눌렸다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "광고주 게시판", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Button goToDriverButton = view.findViewById(R.id.driverNavi);
+        goToAdvisorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "차주 게시판", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

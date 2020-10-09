@@ -63,6 +63,5 @@ public class SignupActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-
     }
 }
