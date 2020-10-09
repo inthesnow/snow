@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,12 +10,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycarad.R;
 
-public class DriverWriteActivity extends AppCompatActivity implements View.OnClickListener {
+public class DriverWriteActivity extends AppCompatActivity {
 
     Button writeClearBtn;
     EditText titleEdit;
@@ -36,7 +38,7 @@ public class DriverWriteActivity extends AppCompatActivity implements View.OnCli
         tuningCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
+                if (isChecked) {
                     tuningEdit.setVisibility(View.VISIBLE);
                 } else {
                     tuningEdit.setVisibility(View.GONE);
@@ -44,8 +46,15 @@ public class DriverWriteActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        writeClearBtn.setOnClickListener((View.OnClickListener) this);
-        tuningCheckBox.setOnClickListener((View.OnClickListener) this);
+        writeClearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "작성완료", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), DriverViewActivity.class);
+                getApplicationContext().startActivity(intent);
+            }
+        });
 
         titleEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -95,16 +104,6 @@ public class DriverWriteActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == writeClearBtn) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-        } else if (v == writeClearBtn) {
-            Intent intent = new Intent(this, SignupActivity.class);
-            startActivity(intent);
-        }
-    }
 
     // title, write 값이 있을 때 로그인 버튼 활성화 처리
     private void checkWriteClewrBtnEnabled() {

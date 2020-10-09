@@ -30,6 +30,33 @@
             tools:background="@color/black" />
 
         <TextView
+            android:id="@+id/writeAdvKindTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="업종"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/writeAdvline" />
+
+        <TextView
+            android:id="@+id/writeAdvKindEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/writeAdvKindTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/writeAdvKindTextView"
+            app:layout_constraintTop_toTopOf="@+id/writeAdvKindTextView"
+            tools:text="고정값" />
+
+        <TextView
             android:id="@+id/writeAdvNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +67,7 @@
             android:text="업체명"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/writeAdvline" />
+            app:layout_constraintTop_toBottomOf="@+id/writeAdvKindTextView" />
 
         <TextView
             android:id="@+id/writeAdvNameEdit"
@@ -54,24 +81,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/writeAdvNameTextView"
             app:layout_constraintTop_toTopOf="@+id/writeAdvNameTextView"
-            tools:ignore="MissingConstraints"
             tools:text="고정값" />
 
         <TextView
-            android:id="@+id/writeAdvAreaTextView"
+            android:id="@+id/writeAdvCarKindTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:text="선호지역"
+            android:text="차종"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/writeAdvNameTextView" />
 
         <CheckBox
-            android:id="@+id/writeAdvAreaCheck"
+            android:id="@+id/writeAdvCarKindCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -79,13 +105,13 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:text="소형"
-            app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
-            app:layout_constraintEnd_toStartOf="@+id/writeAdvAreaCheck2"
-            app:layout_constraintStart_toEndOf="@id/writeAdvAreaTextView"
-            app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView"></CheckBox>
+            app:layout_constraintBottom_toBottomOf="@+id/writeAdvCarKindTextView"
+            app:layout_constraintEnd_toStartOf="@+id/writeAdvCarKindCheck2"
+            app:layout_constraintStart_toEndOf="@id/writeAdvCarKindTextView"
+            app:layout_constraintTop_toTopOf="@+id/writeAdvCarKindTextView" />
 
         <CheckBox
-            android:id="@+id/writeAdvAreaCheck2"
+            android:id="@+id/writeAdvCarKindCheck2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -93,13 +119,13 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:text="중형"
-            app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
-            app:layout_constraintEnd_toStartOf="@+id/writeAdvAreaCheck3"
-            app:layout_constraintStart_toEndOf="@id/writeAdvAreaCheck"
-            app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView"></CheckBox>
+            app:layout_constraintBottom_toBottomOf="@+id/writeAdvCarKindTextView"
+            app:layout_constraintEnd_toStartOf="@+id/writeAdvCarKindCheck3"
+            app:layout_constraintStart_toEndOf="@id/writeAdvCarKindCheck"
+            app:layout_constraintTop_toTopOf="@+id/writeAdvCarKindTextView" />
 
         <CheckBox
-            android:id="@+id/writeAdvAreaCheck3"
+            android:id="@+id/writeAdvCarKindCheck3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -107,10 +133,10 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:text="대형"
-            app:layout_constraintBottom_toBottomOf="@+id/writeAdvAreaTextView"
+            app:layout_constraintBottom_toBottomOf="@+id/writeAdvCarKindTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/writeAdvAreaCheck2"
-            app:layout_constraintTop_toTopOf="@+id/writeAdvAreaTextView"></CheckBox>
+            app:layout_constraintStart_toEndOf="@id/writeAdvCarKindCheck2"
+            app:layout_constraintTop_toTopOf="@+id/writeAdvCarKindTextView" />
 
         <TextView
             android:id="@+id/writeAdvFavorPartTextView"
@@ -123,11 +149,11 @@
             android:text="선호 부위"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/writeAdvAreaTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/writeAdvCarKindTextView" />
 
         <EditText
             android:id="@+id/writeAdvFavorPartEdit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
@@ -137,7 +163,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/writeAdvFavorPartTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/writeAdvFavorPartTextView"
-            app:layout_constraintTop_toBottomOf="@+id/writeAdvAreaTextView"
+            app:layout_constraintTop_toBottomOf="@+id/writeAdvCarKindTextView"
             app:layout_constraintTop_toTopOf="@+id/writeAdvFavorPartTextView" />
 
         <TextView
@@ -155,7 +181,7 @@
 
         <EditText
             android:id="@+id/writeAdvConectEdit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"

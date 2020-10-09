@@ -89,7 +89,7 @@
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDriverCarNameTextView"
-        app:layout_goneMarginTop="20dp"></TextView>
+        app:layout_goneMarginTop="20dp" />
 
     <CheckBox
         android:id="@+id/viewDriverTuningCheck"
@@ -98,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/viewDriverTuningTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/viewDriverTuningTextView"
-        app:layout_constraintTop_toTopOf="@+id/viewDriverTuningTextView"></CheckBox>
+        app:layout_constraintTop_toTopOf="@+id/viewDriverTuningTextView" />
 
     <EditText
         android:id="@+id/viewDriverTuningEdit"
