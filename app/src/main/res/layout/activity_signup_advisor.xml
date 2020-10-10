@@ -51,8 +51,7 @@
             android:hint="다시 한 번 입력해주세요"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signAdPwEditText"
-            tools:ignore="MissingConstraints"></EditText>
+            app:layout_constraintTop_toBottomOf="@+id/signAdPwEditText" />
 
         <EditText
             android:id="@+id/signAdNameEditText"
@@ -62,8 +61,7 @@
             android:hint="닉네임을 입력해주세요"
             app:layout_constraintEnd_toStartOf="@+id/signAdNameCheck"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signAdPwCheck"
-            tools:ignore="MissingConstraints"></EditText>
+            app:layout_constraintTop_toBottomOf="@+id/signAdPwCheck" />
 
         <Button
             android:id="@+id/signAdNameCheck"

@@ -143,7 +143,6 @@ public class AdvisorWriteActivity extends AppCompatActivity {
                 && !(writeEdit.getText().toString().isEmpty())
                 && ((carKindCheckBox1.isChecked()) || (carKindCheckBox2.isChecked()) || (carKindCheckBox3.isChecked()));
         writeClearBtn.setEnabled(isEnabled);
-
     }
 }
 
