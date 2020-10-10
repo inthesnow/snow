@@ -9,7 +9,7 @@
 
         <include
             android:id="@+id/includeAppBar"
-            layout="@layout/widget_appbar"
+            layout="@layout/widget_appbar_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent" />

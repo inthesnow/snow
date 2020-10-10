@@ -35,9 +35,11 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
-        setSupportActionBar(binding.includeAppBar.toolBar);
 
+        //툴바
+        setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //차주, 광고주 선택
         binding.carButton.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
@@ -54,11 +56,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkDriverIdCheckBtnEnabled();
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -72,10 +76,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -85,10 +91,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -98,11 +106,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkDriverNameCheckBtnEnabled();
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -130,6 +140,7 @@ public class SignupActivity extends AppCompatActivity {
                 ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
@@ -140,10 +151,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkDriverSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -167,11 +180,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdIdCheckBtnEnabled();
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -185,10 +200,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -198,10 +215,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -211,11 +230,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdNameCheckBtnEnabled();
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -229,10 +250,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -242,10 +265,12 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAdSignUpButtonEnabled();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -290,7 +315,7 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.driverLayout.signDriverPwCheck.getText().toString().isEmpty())//차주 패스워드 재확인
                 && !(binding.driverLayout.signDriverNameEditText.getText().toString().isEmpty())//닉네임
                 && !(binding.driverLayout.signDriverCarNameEditView.getText().toString().isEmpty())
-                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition()!=0;//차명
+                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition() != 0;//차명
         binding.driverLayout.signDriverClearBtn.setEnabled(isEnabled);
     }
 

@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,10 +31,15 @@ public class HomeActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-        setSupportActionBar(binding.includeAppBar.toolBar);
-
+        //툴바
+        setSupportActionBar(binding.includeAppBar.toolBarHome);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        binding.includeAppBar.appBarSetBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this,MyActivity.class);
+            startActivity(intent);
+        });
 
+        //뷰페이저
         ViewPager viewPager = findViewById(R.id.viewpager);
         ContentsPagerAdapter contentsPagerAdapter = new ContentsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(contentsPagerAdapter);
@@ -50,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         int count = tab.getTabCount();
         for (int i = 0; i < count; i++) tab.getTabAt(i).setIcon(images.get(i));
     }
-
+    //툴바 뒤로 가기
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

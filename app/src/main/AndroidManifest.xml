@@ -20,22 +20,34 @@
         </activity>
         <activity
             android:name=".view.activity.HomeActivity"
-            android:label="mycarad" />
+            android:label="MyCarAD" />
         <activity
             android:name=".view.activity.SignupActivity"
             android:label="회원가입" />
         <activity
             android:name=".view.activity.DriverViewActivity"
-            android:label="mycarad" />
+            android:label="광고할래요" />
         <activity
             android:name=".view.activity.AdvisorViewActivity"
-            android:label="mycarad" />
+            android:label="광고해주세요" />
         <activity
             android:name=".view.activity.AdvisorWriteActivity"
-            android:label="mycarad" />
+            android:label="글쓰기" />
         <activity
             android:name=".view.activity.DriverWriteActivity"
-            android:label="mycarad" />
+            android:label="글쓰기" />
+        <activity
+            android:name=".view.activity.MyActivity"
+            android:label="마이 페이지" />
+        <activity
+            android:name=".view.activity.MyInfoActivity"
+            android:label="내 정보" />
+        <activity
+            android:name=".view.activity.MyAppInfoActivity"
+            android:label="앱정보" />
+        <activity
+            android:name=".view.activity.MyWriteViewActivity"
+            android:label="내가 쓴 글보기" />
     </application>
 
 </manifest>
