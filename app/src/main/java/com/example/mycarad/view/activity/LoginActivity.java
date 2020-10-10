@@ -82,7 +82,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void checkLoginButtonEnabled() {
         boolean isEnabled = !(idEditView.getText().toString().isEmpty()) && !(passEditView.getText().toString().isEmpty());
         loginBtn.setEnabled(isEnabled);
-
     }
 }
 
