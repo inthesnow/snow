@@ -285,7 +285,7 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.driverLayout.signDriverPwCheck.getText().toString().isEmpty())//차주 패스워드 재확인
                 && !(binding.driverLayout.signDriverNameEditText.getText().toString().isEmpty())//닉네임
                 && !(binding.driverLayout.signDriverCarNameEditView.getText().toString().isEmpty())
-                && !(binding.driverLayout.signCarKindSpinner.getSelectedItemPosition()==0);//차명
+                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition()!=0;//차명
         binding.driverLayout.signDriverClearBtn.setEnabled(isEnabled);
     }
 
