@@ -16,6 +16,7 @@ import com.example.mycarad.R;
 import com.example.mycarad.databinding.ActivityHomeBinding;
 import com.example.mycarad.databinding.ActivitySignupBinding;
 import com.example.mycarad.view.adapter.ContentsPagerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -24,18 +25,18 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         //툴바
         setSupportActionBar(binding.includeAppBar.toolBarHome);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.includeAppBar.appBarSetBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this,MyActivity.class);
+            Intent intent = new Intent(this, MyActivity.class);
             startActivity(intent);
         });
 
@@ -55,7 +56,13 @@ public class HomeActivity extends AppCompatActivity {
         //텝카운트
         int count = tab.getTabCount();
         for (int i = 0; i < count; i++) tab.getTabAt(i).setIcon(images.get(i));
+
+        binding.writeFloatingBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), DriverWriteActivity.class);
+            startActivity(intent);
+        });
     }
+
     //툴바 뒤로 가기
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
