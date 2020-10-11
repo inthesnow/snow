@@ -140,6 +140,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), AdvisorViewActivity.class);
                 getApplicationContext().startActivity(intent);
+                finish();
             }
         });
     }

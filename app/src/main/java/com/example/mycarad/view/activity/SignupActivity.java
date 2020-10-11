@@ -173,6 +173,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+            finish();
         });
 
         //광고주 아이디 입력 확인
@@ -280,6 +281,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 

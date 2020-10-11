@@ -40,6 +40,7 @@ public class MyActivity extends AppCompatActivity {
         });
         binding.myLogOutButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
 

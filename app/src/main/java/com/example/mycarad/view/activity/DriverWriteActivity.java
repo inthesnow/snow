@@ -64,6 +64,7 @@ public class DriverWriteActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), DriverViewActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
