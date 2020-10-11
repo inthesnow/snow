@@ -2,9 +2,12 @@ package com.example.mycarad.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,10 +16,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.databinding.ActivityWriteDriverBinding;
 
 public class DriverWriteActivity extends AppCompatActivity {
+
+    private ActivityWriteDriverBinding binding;
 
     Button writeClearBtn;
     EditText titleEdit;
@@ -24,17 +32,20 @@ public class DriverWriteActivity extends AppCompatActivity {
     EditText writeEdit;
     CheckBox tuningCheckBox;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_driver);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_write_driver);
 
         writeClearBtn = findViewById(R.id.writeDriverClearButton);
         titleEdit = findViewById(R.id.writeDriverTitleEdit);
         tuningEdit = findViewById(R.id.writeDriverTuningEdit);
         writeEdit = findViewById(R.id.writeDriverWriteEdit);
         tuningCheckBox = findViewById(R.id.writeDriverTuningCheck);
+
+        setSupportActionBar(binding.includeAppBar.toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tuningCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -52,7 +63,7 @@ public class DriverWriteActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "작성완료", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(), DriverViewActivity.class);
-                getApplicationContext().startActivity(intent);
+                startActivity(intent);
             }
         });
 
@@ -110,6 +121,17 @@ public class DriverWriteActivity extends AppCompatActivity {
         boolean isEnabled = !(titleEdit.getText().toString().isEmpty()) && !(writeEdit.getText().toString().isEmpty());
         writeClearBtn.setEnabled(isEnabled);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

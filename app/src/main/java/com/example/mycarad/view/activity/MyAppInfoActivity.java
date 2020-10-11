@@ -18,8 +18,8 @@ public class MyAppInfoActivity extends AppCompatActivity {
     private ActivityMyAppinfoBinding binding;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my_appinfo);
 
         //툴바

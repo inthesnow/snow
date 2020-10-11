@@ -18,8 +18,8 @@ public class MyInfoActivity extends AppCompatActivity {
     private ActivityMyMyinfoBinding binding;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my_myinfo);
 
         //툴바
@@ -28,6 +28,7 @@ public class MyInfoActivity extends AppCompatActivity {
 
         binding.myInfoChangeButton.setOnClickListener(v -> Toast.makeText(this,"수정", Toast.LENGTH_SHORT).show());
     }
+
     //툴바 뒤로 가기
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

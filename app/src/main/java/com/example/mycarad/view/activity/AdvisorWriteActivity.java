@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,11 +12,16 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.databinding.ActivityWriteAdvisorBinding;
 
 public class AdvisorWriteActivity extends AppCompatActivity {
+
+    private ActivityWriteAdvisorBinding binding;
 
     Button writeClearBtn;
     EditText titleEdit;
@@ -30,7 +36,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_advisor);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_write_advisor);
 
         writeClearBtn = findViewById(R.id.writeAdvClearButton);
         titleEdit = findViewById(R.id.writeAdvTitleEdit);
@@ -40,6 +46,9 @@ public class AdvisorWriteActivity extends AppCompatActivity {
         carKindCheckBox1 = findViewById(R.id.writeAdvCarKindCheck);
         carKindCheckBox2 = findViewById(R.id.writeAdvCarKindCheck2);
         carKindCheckBox3 = findViewById(R.id.writeAdvCarKindCheck3);
+
+        setSupportActionBar(binding.includeAppBar.toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         carKindCheckBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -143,6 +152,18 @@ public class AdvisorWriteActivity extends AppCompatActivity {
                 && !(writeEdit.getText().toString().isEmpty())
                 && ((carKindCheckBox1.isChecked()) || (carKindCheckBox2.isChecked()) || (carKindCheckBox3.isChecked()));
         writeClearBtn.setEnabled(isEnabled);
+    }
+
+    //툴바 뒤로 가기
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 
