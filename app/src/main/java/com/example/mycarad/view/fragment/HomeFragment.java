@@ -46,24 +46,5 @@ public class HomeFragment extends Fragment {
 
         HomeRecyclerViewAdapter driverAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
         driverRecyclerView.setAdapter(driverAdapter);
-
-        Button goToAdvisorButton = view.findViewById(R.id.advisorNavi);
-        goToAdvisorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "광고주 게시판", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        Button goToDriverButton = view.findViewById(R.id.driverNavi);
-        goToAdvisorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "차주 게시판", Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
-
 }
