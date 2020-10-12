@@ -17,7 +17,7 @@ public class ContentsPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<String> titles;
 
     public ContentsPagerAdapter(FragmentManager fm) {
-        super(fm);
+        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         items = new ArrayList<>();
         items.add(new HomeFragment());
         items.add(new AdvisorFragment());

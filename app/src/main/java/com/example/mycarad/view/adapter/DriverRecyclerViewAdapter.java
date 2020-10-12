@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.DriverData;
+import com.example.mycarad.view.activity.DriverViewActivity;
 import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
@@ -66,9 +67,7 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             tv1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context, "눌렸다!", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(context, HomeActivity.class);
+                    Intent intent = new Intent(context, DriverViewActivity.class);
                     context.startActivity(intent);
                 }
             });

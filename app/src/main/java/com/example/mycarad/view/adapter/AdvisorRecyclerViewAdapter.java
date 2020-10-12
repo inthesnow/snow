@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.AdvisorData;
+import com.example.mycarad.view.activity.AdvisorViewActivity;
 import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecy
                 public void onClick(View view) {
                     Toast.makeText(context, "눌렸다!", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(context, HomeActivity.class);
+                    Intent intent = new Intent(context, AdvisorViewActivity.class);
                     context.startActivity(intent);
                 }
             });
