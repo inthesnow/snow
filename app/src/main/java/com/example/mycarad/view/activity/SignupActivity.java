@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,16 +19,26 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.mycarad.R;
 import com.example.mycarad.databinding.ActivitySignupBinding;
+import com.example.mycarad.server.ValidateRequest;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import static android.os.Build.ID;
+import static javax.net.ssl.SSLEngineResult.Status.OK;
 
 public class SignupActivity extends AppCompatActivity {
 
     private ActivitySignupBinding binding;
 
     private Spinner carKind;
+    private boolean validate = false;
     ArrayList<String> arrayList;
     ArrayAdapter<String> arrayAdapter;
 
@@ -68,10 +79,48 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
         //차주 아이디 중복확인 버튼
-        binding.driverLayout.signDriverIdCheck.setOnClickListener(
-                v -> Toast.makeText(this, "사용가능한 아이디입니다.",
-                        Toast.LENGTH_SHORT).show());
-        //차주 패스워드 입력 확인
+        binding.driverLayout.signDriverIdCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userID = binding.driverLayout.signDriverIdEditText.getText().toString();
+                if(validate){
+                    return;//검증 완료
+                }
+                //검증시작
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                    @Override
+
+                    public void onResponse(String response) {
+
+                        try{
+                            Toast.makeText(SignupActivity.this, response, Toast.LENGTH_LONG).show();
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){//사용할 수 있는 아이디라면
+                                Toast.makeText(SignupActivity.this, "사용 가능한 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                                validate = true;//검증완료
+
+                            }else{//사용할 수 없는 아이디라면
+                                Toast.makeText(getApplicationContext(), "사용할 수 없는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                };//Response.Listener 완료
+
+                //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
+
+                ValidateRequest validateRequest = new ValidateRequest(userID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(SignupActivity.this);
+                queue.add(validateRequest);
+            }
+        });
+
         binding.driverLayout.signDriverPwEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
