@@ -1,16 +1,16 @@
 package com.example.mycarad.view.activity;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,19 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
 import com.example.mycarad.R;
 import com.example.mycarad.databinding.ActivitySignupBinding;
-import com.example.mycarad.server.ValidateRequest;
-
-import org.json.JSONObject;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
 
 import java.util.ArrayList;
 
-import static android.os.Build.ID;
-import static javax.net.ssl.SSLEngineResult.Status.OK;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -41,6 +37,9 @@ public class SignupActivity extends AppCompatActivity {
     private boolean validate = false;
     ArrayList<String> arrayList;
     ArrayAdapter<String> arrayAdapter;
+
+    private boolean isDriverIdInvalidate = false;
+    private boolean isClientIdInvalidate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,47 +78,11 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
         //차주 아이디 중복확인 버튼
-        binding.driverLayout.signDriverIdCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userID = binding.driverLayout.signDriverIdEditText.getText().toString();
-                if(validate){
-                    return;//검증 완료
-                }
-                //검증시작
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
-
-                    @Override
-
-                    public void onResponse(String response) {
-
-                        try{
-                            Toast.makeText(SignupActivity.this, response, Toast.LENGTH_LONG).show();
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if(success){//사용할 수 있는 아이디라면
-                                Toast.makeText(SignupActivity.this, "사용 가능한 아이디 입니다.", Toast.LENGTH_SHORT).show();
-                                validate = true;//검증완료
-
-                            }else{//사용할 수 없는 아이디라면
-                                Toast.makeText(getApplicationContext(), "사용할 수 없는 아이디입니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        catch(Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-
-                };//Response.Listener 완료
-
-                //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
-
-                ValidateRequest validateRequest = new ValidateRequest(userID, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(SignupActivity.this);
-                queue.add(validateRequest);
-            }
+        binding.driverLayout.signDriverIdCheck.setOnClickListener(v -> {
+            String userID = binding.driverLayout.signDriverIdEditText.getText().toString();
+            checkDriverValidate(userID);
         });
+
 
         binding.driverLayout.signDriverPwEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -219,10 +182,7 @@ public class SignupActivity extends AppCompatActivity {
         });
         //차주 회원가입버튼
         binding.driverLayout.signDriverClearBtn.setOnClickListener(v -> {
-            Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+            requestSignUpDriver();
         });
 
         //광고주 아이디 입력 확인
@@ -366,7 +326,8 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.driverLayout.signDriverPwCheck.getText().toString().isEmpty())//차주 패스워드 재확인
                 && !(binding.driverLayout.signDriverNameEditText.getText().toString().isEmpty())//닉네임
                 && !(binding.driverLayout.signDriverCarNameEditView.getText().toString().isEmpty())
-                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition() != 0;//차명
+                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition() != 0//차명
+                && isDriverIdInvalidate;//차주 아이디 중복확인
         binding.driverLayout.signDriverClearBtn.setEnabled(isEnabled);
     }
 
@@ -394,4 +355,58 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.advisorLayout.signAdBusinessEditText.getText().toString().isEmpty());//광고주 업체명
         binding.advisorLayout.signAdClearBtn.setEnabled(isEnabled);
     }
+
+    @SuppressLint("CheckResult")
+    private void checkDriverValidate(String id) {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.checkDriverValidate(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                            if (response.getSuccesss()) {
+                                Toast.makeText(this, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(this, "사용 불가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+
+                            }
+                            isDriverIdInvalidate = response.getSuccesss();
+                            checkDriverSignUpButtonEnabled();
+                        }
+                );
+    }
+
+
+    @SuppressLint("CheckResult")
+    private void requestSignUpDriver() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+
+        String carKind = arrayList.get(binding.driverLayout.signCarKindSpinner.getSelectedItemPosition());
+        Log.e("ayhan", "carKind : " + carKind);
+
+        retrofitInterface.requestSignUpDriver(binding.driverLayout.signDriverIdEditText.getText().toString(),
+                binding.driverLayout.signDriverPwEditText.getText().toString(),
+                binding.driverLayout.signDriverNameEditText.getText().toString(),
+                carKind,
+                binding.driverLayout.signDriverCarNameEditView.getText().toString(),
+                binding.driverLayout.signDriverBusinessEditText.getText().toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                            if (response.getSuccesss()) {
+                                Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                );
+
+    }
+
+
 }
+
+
