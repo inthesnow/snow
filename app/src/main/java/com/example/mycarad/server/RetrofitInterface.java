@@ -1,10 +1,12 @@
 package com.example.mycarad.server;
 
+import com.example.mycarad.data.DriverBoardListResponse;
 import com.example.mycarad.data.SignUpResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
@@ -48,4 +50,8 @@ public interface RetrofitInterface {
                                                    @Field("userName") String name,
                                                    @Field("adKind") String kind,
                                                    @Field("adName") String adName);
+
+    @Headers("Accept: application/json")
+    @GET("/BoardList.php")
+    Observable<DriverBoardListResponse> getDriverBoardList();
 }

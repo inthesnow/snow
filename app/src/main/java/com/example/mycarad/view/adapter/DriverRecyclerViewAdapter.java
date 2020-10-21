@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.DriverBoardData;
+import com.example.mycarad.data.DriverBoardListResponse;
 import com.example.mycarad.data.DriverData;
 import com.example.mycarad.view.activity.DriverViewActivity;
 import com.example.mycarad.view.activity.HomeActivity;
@@ -21,11 +23,11 @@ import java.util.ArrayList;
 public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<DriverData> list;
+    private ArrayList<DriverBoardData> list;
 
-    public DriverRecyclerViewAdapter(Context context, ArrayList<DriverData> DriverDataList) {
+    public DriverRecyclerViewAdapter(Context context, ArrayList<DriverBoardData> driverDataList) {
         this.context = context;
-        this.list = DriverDataList;
+        this.list = driverDataList;
     }
 
     @NonNull
@@ -34,7 +36,7 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
         Context context = parent.getContext();
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.item_driver, parent, false);
-        DriverRecyclerViewAdapter.ViewHolder  vh = new DriverRecyclerViewAdapter.ViewHolder(view);
+        DriverRecyclerViewAdapter.ViewHolder vh = new DriverRecyclerViewAdapter.ViewHolder(view);
 
         return vh;
     }
@@ -54,22 +56,19 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             super(itemView);
         }
 
-        public void bind(DriverData Driver) {
+        public void bind(DriverBoardData driver) {
             TextView tv1 = itemView.findViewById(R.id.driverTitleTextView);
-            tv1.setText(Driver.getTitle());
+            tv1.setText(driver.getTitle());
 
             TextView tv2 = itemView.findViewById(R.id.driverTimeTextView);
-            tv2.setText(Driver.getTime());
+            tv2.setText(driver.getDate());
 
             TextView tv3 = itemView.findViewById(R.id.driverAreaTextView);
-            tv3.setText(Driver.getArea() + "/" + Driver.getCarKind());
+            tv3.setText(driver.getIdx() + "/" + driver.getUserName()); //TODO: 인덱스, 유저네임 -> 지역, 차종으로 수정
 
-            tv1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, DriverViewActivity.class);
-                    context.startActivity(intent);
-                }
+            tv1.setOnClickListener(view -> {
+                Intent intent = new Intent(context, DriverViewActivity.class);
+                context.startActivity(intent);
             });
 
         }
