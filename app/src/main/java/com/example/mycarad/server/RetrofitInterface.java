@@ -13,17 +13,39 @@ public interface RetrofitInterface {
     @Headers("Accept: application/json")
     @POST("/DriverValidate.php")
     @FormUrlEncoded
-    Observable<SignUpResponse> checkDriverValidate(@Field("signDriverIdEditText") String id);
+    Observable<SignUpResponse> checkDriverValidate(@Field("userID") String id);
+
+    @Headers("Accept: application/json")
+    @POST("/DriverNickValidate.php")
+    @FormUrlEncoded
+    Observable<SignUpResponse> checkDriverNameValidate(@Field("userName") String name);
 
     @Headers("Accept: application/json")
     @POST("/DriverRegister.php")
     @FormUrlEncoded
-    Observable<SignUpResponse> requestSignUpDriver(@Field("signDriverIdEditText") String id,
-                                                   @Field("signDriverPwEditText") String pw,
-                                                   @Field("signDriverNameEditText") String name,
-                                                   @Field("signCarKindTextView") String kind,
-                                                   @Field("signDriverCarNameEditView") String carName,
-                                                   @Field("signDriverBusinessEditText") String tune);
+    Observable<SignUpResponse> requestSignUpDriver(@Field("userID") String id,
+                                                   @Field("userPassword") String pw,
+                                                   @Field("userName") String name,
+                                                   @Field("carKind") String kind,
+                                                   @Field("carName") String carName,
+                                                   @Field("carTune") String tune);
 
+    @Headers("Accept: application/json")
+    @POST("/DriverValidate.php")
+    @FormUrlEncoded
+    Observable<SignUpResponse> checkAdvisorValidate(@Field("userID") String id);
 
+    @Headers("Accept: application/json")
+    @POST("/DriverValidate.php")
+    @FormUrlEncoded
+    Observable<SignUpResponse> checkAdvisorNameValidate(@Field("userName") String name);
+
+    @Headers("Accept: application/json")
+    @POST("/DriverRegister.php")
+    @FormUrlEncoded
+    Observable<SignUpResponse> requestSignUpAdvisor(@Field("userID") String id,
+                                                   @Field("userPassword") String pw,
+                                                   @Field("userName") String name,
+                                                   @Field("adKind") String kind,
+                                                   @Field("adName") String adName);
 }
