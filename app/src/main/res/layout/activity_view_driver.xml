@@ -21,7 +21,7 @@
             app:layout_constraintTop_toBottomOf="@+id/includeAppBar"
             app:layout_constraintVertical_bias="0">
 
-            <EditText
+            <TextView
                 android:id="@+id/viewDriverTitleEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,11 +29,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:hint="제목을 입력해주세요."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/viewDriverline"
@@ -65,7 +63,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/viewDriverCarKindTextView"
                 app:layout_constraintTop_toTopOf="@+id/viewDriverCarKindTextView"
-                tools:ignore="MissingConstraints"
                 tools:text="고정값" />
 
             <TextView
@@ -76,7 +73,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="차종"
+                android:text="차명"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewDriverCarKindTextView"
@@ -109,6 +106,7 @@
 
             <CheckBox
                 android:id="@+id/viewDriverTuningCheck"
+                android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/viewDriverTuningTextView"
@@ -116,7 +114,7 @@
                 app:layout_constraintStart_toEndOf="@id/viewDriverTuningTextView"
                 app:layout_constraintTop_toTopOf="@+id/viewDriverTuningTextView" />
 
-            <EditText
+            <TextView
                 android:id="@+id/viewDriverTuningEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,7 +124,6 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/view_edit_background"
                 android:gravity="start"
-                android:hint="튜닝 세부사항을 적어주세요"
                 android:minLines="3"
                 app:layout_constraintEnd_toEndOf="@+id/viewDriverTuningCheck"
                 app:layout_constraintHorizontal_bias="0"
@@ -144,7 +141,7 @@
                 app:layout_constraintStart_toStartOf="@+id/viewDriverTuningTextView"
                 app:layout_constraintTop_toBottomOf="@+id/viewDriverTuningEdit" />
 
-            <EditText
+            <TextView
                 android:id="@+id/viewDriverviewEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +151,6 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/view_edit_background"
                 android:gravity="start"
-                android:hint="글 내용을 적어주세요."
                 android:minLines="5"
                 app:layout_constraintEnd_toEndOf="@+id/viewDriverTuningEdit"
                 app:layout_constraintHorizontal_bias="0"
