@@ -6,28 +6,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.DriverBoardData;
-import com.example.mycarad.data.DriverBoardListResponse;
-import com.example.mycarad.data.DriverData;
+import com.example.mycarad.data.DriverBoardInfo;
 import com.example.mycarad.view.activity.DriverViewActivity;
-import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<DriverBoardData> list;
+    private ArrayList<DriverBoardInfo> list;
 
-    public DriverRecyclerViewAdapter(Context context, ArrayList<DriverBoardData> driverDataList) {
+    public DriverRecyclerViewAdapter(Context context, List<DriverBoardInfo> driverDataList) {
         this.context = context;
-        this.list = driverDataList;
+        this.list = (ArrayList<DriverBoardInfo>) driverDataList;
     }
 
     @NonNull
@@ -56,7 +53,7 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             super(itemView);
         }
 
-        public void bind(DriverBoardData driver) {
+        public void bind(DriverBoardInfo driver) {
             TextView tv1 = itemView.findViewById(R.id.driverTitleTextView);
             tv1.setText(driver.getTitle());
 

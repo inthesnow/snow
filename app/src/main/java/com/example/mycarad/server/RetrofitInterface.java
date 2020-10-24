@@ -1,6 +1,6 @@
 package com.example.mycarad.server;
 
-import com.example.mycarad.data.DriverBoardListResponse;
+import com.example.mycarad.data.DriverBoardDto;
 import com.example.mycarad.data.SignUpResponse;
 
 import io.reactivex.Observable;
@@ -53,5 +53,5 @@ public interface RetrofitInterface {
 
     @Headers("Accept: application/json")
     @GET("/BoardList.php")
-    Observable<DriverBoardListResponse> getDriverBoardList();
+    Observable<DriverBoardDto> getDriverBoardList();
 }
