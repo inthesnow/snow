@@ -16,18 +16,6 @@
         app:layout_constraintVertical_bias="0.2"
         android:background="@drawable/main_logo" />
 
-    <TextView
-        android:id="@+id/errorTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLogo"
-        tools:text="error" />
 
     <TextView
         android:id="@+id/idTextView"
@@ -40,7 +28,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/idEditView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/errorTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/loginLogo" />
 
     <EditText
         android:id="@+id/idEditView"
@@ -77,6 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:inputType="textPassword"
         android:maxLength="14"
         android:maxLines="1"
         android:minWidth="50dp"

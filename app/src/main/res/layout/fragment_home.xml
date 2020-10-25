@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/advisorRecyclerView"
+        android:id="@+id/homeAdvisorRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/advisorTextView"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/advisorRecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/driverRecyclerView"
+        android:id="@+id/homeDriverRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/driverTextView"
