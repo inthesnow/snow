@@ -1,5 +1,6 @@
 package com.example.mycarad.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.AdvisorDummyData;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
 import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;
+import com.example.mycarad.view.adapter.DriverRecyclerViewAdapter;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class AdvisorFragment extends Fragment {
+
+    private RecyclerView advisorRecyclerView;
 
     @Override
     public View onCreateView(
@@ -26,11 +35,22 @@ public class AdvisorFragment extends Fragment {
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView advisorRecyclerView = view.findViewById(R.id.advisorRecyclerView);
+        advisorRecyclerView = view.findViewById(R.id.advisorRecyclerView);
         advisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        AdvisorRecyclerViewAdapter advisorAdapter = new AdvisorRecyclerViewAdapter(getContext(), AdvisorDummyData.data());
-        advisorRecyclerView.setAdapter(advisorAdapter);
+        getAdvisorBoardList();
+    }
+
+    @SuppressLint("CheckResult")
+    private void getAdvisorBoardList() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getAdvisorBoardList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    AdvisorRecyclerViewAdapter advisorAdapter = new AdvisorRecyclerViewAdapter(getContext(), response.getResponse());
+                    advisorRecyclerView.setAdapter(advisorAdapter);
+                });
 
     }
 }

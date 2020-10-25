@@ -1,5 +1,6 @@
 package com.example.mycarad.server;
 
+import com.example.mycarad.data.AdvisorBoardDto;
 import com.example.mycarad.data.DriverBoardDto;
 import com.example.mycarad.data.SignUpResponse;
 
@@ -54,4 +55,9 @@ public interface RetrofitInterface {
     @Headers("Accept: application/json")
     @GET("/BoardList.php")
     Observable<DriverBoardDto> getDriverBoardList();
+
+
+    @Headers("Accept: application/json")
+    @GET("AdvisorBoardList.php")
+    Observable<AdvisorBoardDto> getAdvisorBoardList();
 }

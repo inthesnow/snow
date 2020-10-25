@@ -12,20 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.AdvisorBoardInfo;
 import com.example.mycarad.data.AdvisorData;
 import com.example.mycarad.view.activity.AdvisorViewActivity;
 import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<AdvisorData> list;
+    private ArrayList<AdvisorBoardInfo> list;
 
-    public AdvisorRecyclerViewAdapter(Context context, ArrayList<AdvisorData> AdvisorDataList) {
+    public AdvisorRecyclerViewAdapter(Context context, List<AdvisorBoardInfo> advisorDataList) {
         this.context = context;
-        this.list = AdvisorDataList;
+        this.list = (ArrayList<AdvisorBoardInfo>) advisorDataList;
     }
 
     @NonNull
@@ -54,12 +56,12 @@ public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecy
             super(itemView);
         }
 
-        public void bind(AdvisorData Advisor) {
+        public void bind(AdvisorBoardInfo Advisor) {
             TextView tv1 = itemView.findViewById(R.id.advTitleTextView);
             tv1.setText(Advisor.getTitle());
 
             TextView tv2 = itemView.findViewById(R.id.advTimeTextView);
-            tv2.setText(Advisor.getTime());
+            tv2.setText(Advisor.getDate());
 
             TextView tv3 = itemView.findViewById(R.id.advAreaTextView);
             tv3.setText(Advisor.getArea() + "/" + Advisor.getMoney());
