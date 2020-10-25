@@ -18,11 +18,6 @@ public class DriverViewActivity extends AppCompatActivity {
 
     private ActivityViewDriverBinding binding;
 
-    EditText titleEdit;
-    EditText tuningEdit;
-    EditText writeEdit;
-    CheckBox tuningCheckBox;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +25,6 @@ public class DriverViewActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        titleEdit = findViewById(R.id.viewDriverTitleEdit);
-        tuningEdit = findViewById(R.id.viewDriverTuningEdit);
-        writeEdit = findViewById(R.id.viewDriverviewEdit);
-        tuningCheckBox = findViewById(R.id.writeDriverTuningCheck);
     }
     //툴바 뒤로 가기
     @Override

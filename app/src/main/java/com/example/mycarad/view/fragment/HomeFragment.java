@@ -35,13 +35,13 @@ public class HomeFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView advisorRecyclerView = view.findViewById(R.id.advisorRecyclerView);
+        RecyclerView advisorRecyclerView = view.findViewById(R.id.homeAdvisorRecyclerView);
         advisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
         advisorRecyclerView.setAdapter(advisorAdapter);
 
-        RecyclerView driverRecyclerView = view.findViewById(R.id.driverRecyclerView);
+        RecyclerView driverRecyclerView = view.findViewById(R.id.homeDriverRecyclerView);
         driverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         HomeRecyclerViewAdapter driverAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
