@@ -11,6 +11,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.Preference;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -84,5 +85,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean isEnabled = !(idEditView.getText().toString().isEmpty()) && !(passEditView.getText().toString().isEmpty());
         loginBtn.setEnabled(isEnabled);
     }
+
+    private void loginRequset() {
+        // api 호출
+        // respont.... -> response == "suceesse"
+        //
+        Preference preference = new Preference();
+        preference.setId(this, idEditView.getText().toString());
+        preference.setPw(this, passEditView.getText().toString());
+
+
+        // 스플래시에서 해야하는 일
+        String id = preference.getId(this);
+        String pw = preference.getPw(this);
+        if(id.isEmpty() || pw.isEmpty()) {
+             // 로그인 페이지로
+        } else {
+            // 로그인 api 호출
+        }
+    }
 }
+
 
