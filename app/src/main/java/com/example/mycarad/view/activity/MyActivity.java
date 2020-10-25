@@ -26,7 +26,7 @@ public class MyActivity extends AppCompatActivity {
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        binding.myInfoButton.setOnClickListener(v -> {
+        binding.myInfoChangeButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, MyInfoActivity.class);
             startActivity(intent);
         });
