@@ -1,6 +1,7 @@
 package com.example.mycarad.server;
 
 import com.example.mycarad.data.AdvisorBoardDto;
+import com.example.mycarad.data.AdvisorReadDto;
 import com.example.mycarad.data.DriverBoardDto;
 import com.example.mycarad.data.SignUpResponse;
 
@@ -10,6 +11,9 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
@@ -58,6 +62,11 @@ public interface RetrofitInterface {
 
 
     @Headers("Accept: application/json")
-    @GET("AdvisorBoardList.php")
+    @GET("/AdvisorBoardList.php")
     Observable<AdvisorBoardDto> getAdvisorBoardList();
+
+
+    @Headers("Accept: application/json")
+    @GET("/AdvisorRead.php")
+    Observable<AdvisorReadDto> getAdvisorRead(@Query("idx") String idx);
 }

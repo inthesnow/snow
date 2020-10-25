@@ -7,7 +7,7 @@ data class AdvisorBoardDto(
 ) : Serializable
 
 data class AdvisorBoardInfo(
-        val idx : Int,
+        val idx : String,
         val title : String,
         val userName : String,
         val advName : String,
