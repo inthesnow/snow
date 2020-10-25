@@ -176,13 +176,6 @@ public class SignupActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-        binding.driverLayout.signTuningCheck.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                binding.driverLayout.signDriverBusinessEditText.setVisibility(View.VISIBLE);
-            } else {
-                binding.driverLayout.signDriverBusinessEditText.setVisibility(View.GONE);
-            }
-        });
         //차주 회원가입버튼
         binding.driverLayout.signDriverClearBtn.setOnClickListener(v -> {
             requestSignUpDriver();
@@ -260,21 +253,6 @@ public class SignupActivity extends AppCompatActivity {
             String userID = binding.advisorLayout.signAdNameEditText.getText().toString();
             checkAdvisorNameValidate(userID);
         });
-        //광고주 업종 입력확인
-        binding.advisorLayout.signAdKindEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkAdSignUpButtonEnabled();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
         //광고주 업체명 입력확인
         binding.advisorLayout.signAdBusinessEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -327,8 +305,8 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.driverLayout.signDriverPwEditText.getText().toString().isEmpty())//차주 패스워드
                 && !(binding.driverLayout.signDriverPwCheck.getText().toString().isEmpty())//차주 패스워드 재확인
                 && !(binding.driverLayout.signDriverNameEditText.getText().toString().isEmpty())//닉네임
-                && !(binding.driverLayout.signDriverCarNameEditView.getText().toString().isEmpty())
-                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition() != 0//차명
+                && !(binding.driverLayout.signDriverCarNameEditView.getText().toString().isEmpty())//차이름
+                && binding.driverLayout.signCarKindSpinner.getSelectedItemPosition() != 0//차종
                 && isDriverIdInvalidate
                 && isDriverNameInvalidate;//차주 아이디 중복확인
         binding.driverLayout.signDriverClearBtn.setEnabled(isEnabled);
@@ -354,10 +332,9 @@ public class SignupActivity extends AppCompatActivity {
                 && !(binding.advisorLayout.signAdPwEditText.getText().toString().isEmpty())//광고주 패스워드
                 && !(binding.advisorLayout.signAdPwCheck.getText().toString().isEmpty())//광고주 패스워드 재확인
                 && !(binding.advisorLayout.signAdNameEditText.getText().toString().isEmpty())//광고주 닉네임
-                && !(binding.advisorLayout.signAdKindEditText.getText().toString().isEmpty())//광고주 업종
-                && !(binding.advisorLayout.signAdBusinessEditText.getText().toString().isEmpty())
+                && !(binding.advisorLayout.signAdBusinessEditText.getText().toString().isEmpty())//광고주 업체명
                 && isAdvisorIdInvalidate
-                && isAdvisorNameInvalidate;//광고주 업체명
+                && isAdvisorNameInvalidate;
         binding.advisorLayout.signAdClearBtn.setEnabled(isEnabled);
     }
     //차주 아이디 중복체크
@@ -411,8 +388,7 @@ public class SignupActivity extends AppCompatActivity {
                 binding.driverLayout.signDriverPwEditText.getText().toString(),
                 binding.driverLayout.signDriverNameEditText.getText().toString(),
                 carKind,
-                binding.driverLayout.signDriverCarNameEditView.getText().toString(),
-                binding.driverLayout.signDriverBusinessEditText.getText().toString())
+                binding.driverLayout.signDriverCarNameEditView.getText().toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -427,7 +403,6 @@ public class SignupActivity extends AppCompatActivity {
                             }
                         }
                 );
-
     }
 
     //광고주 아이디 중복체크
@@ -475,13 +450,9 @@ public class SignupActivity extends AppCompatActivity {
     private void requestSignUpAdvisor() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
 
-        String carKind = arrayList.get(binding.driverLayout.signCarKindSpinner.getSelectedItemPosition());
-        Log.e("ayhan", "carKind : " + carKind);
-
         retrofitInterface.requestSignUpAdvisor(binding.advisorLayout.signAdIdEditText.getText().toString(),
                 binding.advisorLayout.signAdPwEditText.getText().toString(),
                 binding.advisorLayout.signAdNameEditText.getText().toString(),
-                binding.advisorLayout.signAdKindEditText.getText().toString(),
                 binding.advisorLayout.signAdBusinessEditText.getText().toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -34,26 +34,24 @@ public interface RetrofitInterface {
                                                    @Field("userPassword") String pw,
                                                    @Field("userName") String name,
                                                    @Field("carKind") String kind,
-                                                   @Field("carName") String carName,
-                                                   @Field("carTune") String tune);
+                                                   @Field("carName") String carName);
 
     @Headers("Accept: application/json")
-    @POST("/DriverValidate.php")
+    @POST("/AdvisorValidate.php")
     @FormUrlEncoded
     Observable<SignUpResponse> checkAdvisorValidate(@Field("userID") String id);
 
     @Headers("Accept: application/json")
-    @POST("/DriverValidate.php")
+    @POST("/Adnickvalidate.php")
     @FormUrlEncoded
     Observable<SignUpResponse> checkAdvisorNameValidate(@Field("userName") String name);
 
     @Headers("Accept: application/json")
-    @POST("/DriverRegister.php")
+    @POST("/AdvisorRegister.php")
     @FormUrlEncoded
     Observable<SignUpResponse> requestSignUpAdvisor(@Field("userID") String id,
                                                    @Field("userPassword") String pw,
                                                    @Field("userName") String name,
-                                                   @Field("adKind") String kind,
                                                    @Field("adName") String adName);
 
     @Headers("Accept: application/json")
