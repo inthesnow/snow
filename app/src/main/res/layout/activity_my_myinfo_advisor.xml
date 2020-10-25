@@ -13,33 +13,35 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/my_myimage_money"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/myInfoAdUserNameTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/myInfoAdNameTextView"
+            android:id="@+id/myInfoAdUserNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="닉네임"
             android:textColor="@color/baseTextColor"
             android:textSize="20sp"
+
+            app:layout_constraintBottom_toTopOf="@+id/myInfoAdAdvNameTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myInfoAdImage" />
+            app:layout_constraintStart_toEndOf="@+id/myInfoAdImage"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/myInfoAdName"
+            android:id="@+id/myInfoAdAdvNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:text="업체명"
             android:textColor="@color/baseTextColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myInfoAdKind" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/myInfoAdUserNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/myInfoAdUserNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/myInfoAdUserNameTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
