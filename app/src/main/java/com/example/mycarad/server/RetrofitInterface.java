@@ -52,7 +52,7 @@ public interface RetrofitInterface {
     Observable<SignUpResponse> requestSignUpAdvisor(@Field("userID") String id,
                                                    @Field("userPassword") String pw,
                                                    @Field("userName") String name,
-                                                   @Field("adName") String adName);
+                                                   @Field("advName") String advName);
 
     @Headers("Accept: application/json")
     @GET("/BoardList.php")

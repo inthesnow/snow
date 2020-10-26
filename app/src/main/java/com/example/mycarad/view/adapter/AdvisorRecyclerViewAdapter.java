@@ -70,7 +70,7 @@ public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecy
             ConstraintLayout advisorItemLayout = itemView.findViewById(R.id.advisorItemLayout);
             advisorItemLayout.setOnClickListener(v -> {
                 Intent intent = new Intent(context, AdvisorViewActivity.class);
-                Log.e("ayhan", "advisorInfo.getIdx() : " + advisorInfo.getIdx());
+                /*Log.e("ayhan", "advisorInfo.getIdx() : " + advisorInfo.getIdx());*/
 
                 Bundle extras = new Bundle();
                 extras.putString("writeId", advisorInfo.getIdx());

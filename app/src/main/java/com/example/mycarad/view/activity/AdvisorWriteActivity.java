@@ -25,9 +25,10 @@ public class AdvisorWriteActivity extends AppCompatActivity {
 
     Button writeClearBtn;
     EditText titleEdit;
-    EditText favorEdit;
+    EditText areaEdit;
     EditText conectEdit;
     EditText writeEdit;
+    EditText moneyEdit;
     CheckBox carKindCheckBox1;
     CheckBox carKindCheckBox2;
     CheckBox carKindCheckBox3;
@@ -40,7 +41,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
 
         writeClearBtn = findViewById(R.id.writeAdvClearButton);
         titleEdit = findViewById(R.id.writeAdvTitleEdit);
-        favorEdit = findViewById(R.id.writeAdvFavorPartEdit);
+        areaEdit = findViewById(R.id.writeAdvAraeEdit);
         conectEdit = findViewById(R.id.writeAdvConectEdit);
         writeEdit = findViewById(R.id.writeAdvWriteEdit);
         carKindCheckBox1 = findViewById(R.id.writeAdvCarKindCheck);
@@ -88,7 +89,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
             }
         });
 
-        favorEdit.addTextChangedListener(new TextWatcher() {
+        areaEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -148,7 +149,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
     // title, write 값이 있을 때 로그인 버튼 활성화 처리
     private void checkWriteClearBtnEnabled() {
         boolean isEnabled = !(titleEdit.getText().toString().isEmpty())
-                && !(favorEdit.getText().toString().isEmpty())
+                && !(areaEdit.getText().toString().isEmpty())
                 && !(conectEdit.getText().toString().isEmpty())
                 && !(writeEdit.getText().toString().isEmpty())
                 && ((carKindCheckBox1.isChecked()) || (carKindCheckBox2.isChecked()) || (carKindCheckBox3.isChecked()));

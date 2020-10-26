@@ -29,16 +29,28 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="start"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/driverUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="start"
+                app:layout_constraintBottom_toTopOf="@+id/viewDriverline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/viewDriverTitleEdit"
+                app:layout_constraintTop_toBottomOf="@+id/viewDriverTitleEdit" />
 
             <ImageView
                 android:id="@+id/viewDriverline"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewDriverTitleEdit"
+                app:layout_constraintTop_toBottomOf="@+id/driverUserName"
                 tools:background="@color/black" />
 
             <TextView
@@ -123,7 +135,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/view_edit_background"
-                android:gravity="start"
+                tools:text="리스폰값"
                 android:minLines="3"
                 app:layout_constraintEnd_toEndOf="@+id/viewDriverTuningCheck"
                 app:layout_constraintHorizontal_bias="0"
@@ -150,7 +162,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/view_edit_background"
-                android:gravity="start"
+                tools:text="리스폰값"
                 android:minLines="5"
                 app:layout_constraintEnd_toEndOf="@+id/viewDriverTuningEdit"
                 app:layout_constraintHorizontal_bias="0"

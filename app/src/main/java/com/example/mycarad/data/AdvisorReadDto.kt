@@ -10,10 +10,11 @@ data class AdvisorReadInfo(
         val idx : String,
         val title :String,
         val userName : String,
-        val adbName : String,
+        val advName : String,
         val area : String,
         val carkind :String,
         val connect :String,
         val detail : String,
-        val date : String
+        val date : String,
+        val money : String
 )

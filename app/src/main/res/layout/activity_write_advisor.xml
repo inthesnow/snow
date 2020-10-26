@@ -44,33 +44,6 @@
                 android:background="@color/black" />
 
             <TextView
-                android:id="@+id/writeAdvKindTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="업종"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/writeAdvline" />
-
-            <TextView
-                android:id="@+id/writeAdvKindEdit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="@id/writeAdvKindTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/writeAdvKindTextView"
-                app:layout_constraintTop_toTopOf="@+id/writeAdvKindTextView"
-                tools:text="고정값" />
-
-            <TextView
                 android:id="@+id/writeAdvNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +54,7 @@
                 android:text="업체명"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/writeAdvKindTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvline" />
 
             <TextView
                 android:id="@+id/writeAdvNameEdit"
@@ -153,32 +126,59 @@
                 app:layout_constraintTop_toTopOf="@+id/writeAdvCarKindTextView" />
 
             <TextView
-                android:id="@+id/writeAdvFavorPartTextView"
+                android:id="@+id/writeAdvAraeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="선호 부위"
+                android:text="선호 지역"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/writeAdvCarKindTextView" />
 
             <EditText
-                android:id="@+id/writeAdvFavorPartEdit"
+                android:id="@+id/writeAdvAraeEdit"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:hint="선호 부위"
+                app:layout_constraintBottom_toBottomOf="@+id/writeAdvAraeTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/writeAdvNameEdit"
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvCarKindTextView"
+                app:layout_constraintTop_toTopOf="@+id/writeAdvAraeTextView" />
+
+            <TextView
+                android:id="@+id/writeAdvMoneyTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:hint="선호 부위"
-                app:layout_constraintBottom_toBottomOf="@+id/writeAdvFavorPartTextView"
+                android:text="금액"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/writeAdvConectEdit"
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvAraeTextView"/>
+
+            <EditText
+                android:id="@+id/writeAdvMoneyEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:hint="예상 금액을 적어주세요."
+                app:layout_constraintBottom_toBottomOf="@+id/writeAdvMoneyTextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/writeAdvFavorPartTextView"
-                app:layout_constraintTop_toBottomOf="@+id/writeAdvCarKindTextView"
-                app:layout_constraintTop_toTopOf="@+id/writeAdvFavorPartTextView" />
+                app:layout_constraintStart_toStartOf="@+id/writeAdvNameEdit"
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvAraeTextView"
+                app:layout_constraintTop_toTopOf="@+id/writeAdvMoneyTextView" />
 
             <TextView
                 android:id="@+id/writeAdvConectTextView"
@@ -189,23 +189,23 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="연락처"
-                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/writeAdvFavorPartTextView" />
+                app:layout_constraintEnd_toStartOf="@+id/writeAdvConectEdit"
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvMoneyTextView" />
 
             <EditText
                 android:id="@+id/writeAdvConectEdit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:hint="연락수단을 남겨주세요."
                 app:layout_constraintBottom_toBottomOf="@+id/writeAdvConectTextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/writeAdvConectTextView"
-                app:layout_constraintTop_toBottomOf="@+id/writeAdvFavorPartTextView"
+                app:layout_constraintStart_toStartOf="@+id/writeAdvNameEdit"
+                app:layout_constraintTop_toBottomOf="@+id/writeAdvMoneyTextView"
                 app:layout_constraintTop_toTopOf="@+id/writeAdvConectTextView" />
 
             <TextView
