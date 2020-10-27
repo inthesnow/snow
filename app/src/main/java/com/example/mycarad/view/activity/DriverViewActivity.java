@@ -1,5 +1,7 @@
 package com.example.mycarad.view.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -12,16 +14,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.AdvisorReadInfo;
+import com.example.mycarad.data.DriverReadInfo;
 import com.example.mycarad.databinding.ActivityViewDriverBinding;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class DriverViewActivity extends AppCompatActivity {
 
     private ActivityViewDriverBinding binding;
+    private String writeId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        writeId = intent.getExtras().getString("idx");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_driver);
+        getDriverRead();
 
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,5 +49,20 @@ public class DriverViewActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+    @SuppressLint("CheckResult")
+    private void getDriverRead() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getDriverRead(writeId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    setUpView(response.getResponse2().get(0));
+                });
+
+    }
+
+    private void setUpView(DriverReadInfo info) {
+                binding.viewDriverTitleEdit.setText(info.getTitle());
     }
 }

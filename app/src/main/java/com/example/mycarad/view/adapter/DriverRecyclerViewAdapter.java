@@ -2,6 +2,8 @@ package com.example.mycarad.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.IDNA;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.DriverBoardInfo;
+import com.example.mycarad.data.DriverUserInfo;
 import com.example.mycarad.view.activity.DriverViewActivity;
 
 import java.util.ArrayList;
@@ -61,10 +64,13 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             tv2.setText(driver.getDate());
 
             TextView tv3 = itemView.findViewById(R.id.driverAreaTextView);
-            tv3.setText(driver.getIdx() + "/" + driver.getUserName()); //TODO: 인덱스, 유저네임 -> 지역, 차종으로 수정
+            tv3.setText(driver.getCarName() + "/" + driver.getDate());
 
             tv1.setOnClickListener(view -> {
                 Intent intent = new Intent(context, DriverViewActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("idx", driver.getIdx());
+                intent.putExtras(extras);
                 context.startActivity(intent);
             });
 

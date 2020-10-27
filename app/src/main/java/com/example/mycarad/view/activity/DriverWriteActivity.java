@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
@@ -20,72 +21,66 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.DriverReadDto;
+import com.example.mycarad.data.DriverUserDto;
+import com.example.mycarad.data.DriverUserInfo;
+import com.example.mycarad.data.DriverWriteResponse;
+import com.example.mycarad.data.UserType;
 import com.example.mycarad.databinding.ActivityWriteDriverBinding;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
+import com.example.mycarad.view.adapter.DriverRecyclerViewAdapter;
+
+import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class DriverWriteActivity extends AppCompatActivity {
 
     private ActivityWriteDriverBinding binding;
-
-    Button writeClearBtn;
-    EditText titleEdit;
-    EditText tuningEdit;
-    EditText writeEdit;
-    CheckBox tuningCheckBox;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        userName = intent.getExtras().getString("userName");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_write_driver);
 
-        writeClearBtn = findViewById(R.id.writeDriverClearButton);
-        titleEdit = findViewById(R.id.writeDriverTitleEdit);
-        tuningEdit = findViewById(R.id.writeDriverTuningEdit);
-        writeEdit = findViewById(R.id.writeDriverWriteEdit);
-        tuningCheckBox = findViewById(R.id.writeDriverTuningCheck);
-
+        getDriverWriteResponse();
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        tuningCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        //타이틀 에딧
+        binding.writeDriverTitleEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkWriteClearBtnEnabled();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //튜닝여부체크
+        binding.writeDriverTuningCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    tuningEdit.setVisibility(View.VISIBLE);
+                    binding.writeDriverTuningEdit.setVisibility(View.VISIBLE);
                 } else {
-                    tuningEdit.setVisibility(View.GONE);
+                    binding.writeDriverTuningEdit.setVisibility(View.GONE);
                 }
             }
         });
-
-        writeClearBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "작성완료", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(getApplicationContext(), DriverViewActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        titleEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //   Log.e("title", "beforeTextChanged " + s.toString());
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkWriteClewrBtnEnabled();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        tuningEdit.addTextChangedListener(new TextWatcher() {
+        //튜닝 에딧
+        binding.writeDriverTuningEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -98,15 +93,16 @@ public class DriverWriteActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-        writeEdit.addTextChangedListener(new TextWatcher() {
+        //커넥팅 제시
+        binding.writeDriverConnect.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //   Log.e("write", "beforeTextChanged " + s.toString());
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkWriteClewrBtnEnabled();
+                checkWriteClearBtnEnabled();
             }
 
             @Override
@@ -114,20 +110,86 @@ public class DriverWriteActivity extends AppCompatActivity {
 
             }
         });
+        //게시글 상세정보
+        binding.writeDriverWriteEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkWriteClearBtnEnabled();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //작성완료 버튼
+        binding.writeDriverClearButton.setOnClickListener(view -> requestWriteDriver());
     }
 
 
-    // title, write 값이 있을 때 로그인 버튼 활성화 처리
-    private void checkWriteClewrBtnEnabled() {
-        boolean isEnabled = !(titleEdit.getText().toString().isEmpty()) && !(writeEdit.getText().toString().isEmpty());
-        writeClearBtn.setEnabled(isEnabled);
+    // title, write, connect 값이 있을 때 로그인 버튼 활성화 처리
+    private void checkWriteClearBtnEnabled() {
+        boolean isEnabled = !(binding.writeDriverTitleEdit.getText().toString().isEmpty())
+                && !(binding.writeDriverWriteEdit.getText().toString().isEmpty())
+                && !(binding.writeDriverConnect.getText().toString().isEmpty());
+        binding.writeDriverClearButton.setEnabled(isEnabled);
 
     }
 
+    //게시글 작성완료 체크
+    @SuppressLint("CheckResult")
+    private void requestWriteDriver() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+
+        retrofitInterface.requestWriteDriver(binding.writeDriverTitleEdit.getText().toString(),
+                userName,
+                binding.writeDriverCarKindEdit.getText().toString(),
+                binding.writeDriverCarNameEdit.getText().toString(),
+                binding.writeDriverTuningEdit.getText().toString(),
+                binding.writeDriverConnect.getText().toString(),
+                binding.writeDriverWriteEdit.getText().toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                            if (response.getSuccesss()) {
+                                Toast.makeText(this, "작성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(this, "작성에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                );
+
+    }
+    @SuppressLint("CheckResult")
+    private void getDriverWriteResponse() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getDriverWriteResponse(userName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    setUpView(response.getResponse().get(0));
+                });
+
+    }
+
+    private void setUpView(DriverUserInfo driverUserInfo) {
+        binding.writeDriverCarKindEdit.setText(driverUserInfo.getCarKind());
+        binding.writeDriverCarNameEdit.setText(driverUserInfo.getCarName());
+    }
+
+    //앱바
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;
             }
