@@ -3,7 +3,7 @@ package com.example.mycarad.data
 import java.io.Serializable
 
 data class AdvisorReadDto(
-        val response2 : List<AdvisorReadInfo>
+        val response : List<AdvisorReadInfo>
 ) : Serializable
 
 data class AdvisorReadInfo(

@@ -61,7 +61,7 @@ public class AdvisorViewActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    setUpView(response.getResponse2().get(0));
+                    setUpView(response.getResponse().get(0));
 
                 });
 
@@ -69,5 +69,12 @@ public class AdvisorViewActivity extends AppCompatActivity {
 
     private void setUpView(AdvisorReadInfo info) {
         binding.viewAdvTitleEdit.setText(info.getTitle());
+        binding.advUserName.setText(info.getUserName());
+        binding.viewAdvNameEdit.setText(info.getUserName());
+        binding.viewAdvAreaEdit.setText(info.getUserName());
+        binding.viewAdvMoneyEdit.setText(info.getUserName());
+        binding.viewAdvConnectEdit.setText(info.getUserName());
+        binding.viewAdvViewEdit.setText(info.getUserName());
+
     }
 }
