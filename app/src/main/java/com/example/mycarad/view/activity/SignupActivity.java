@@ -82,7 +82,7 @@ public class SignupActivity extends AppCompatActivity {
         //차주 아이디 중복확인 버튼
         binding.driverLayout.signDriverIdCheck.setOnClickListener(v -> {
             String userID = binding.driverLayout.signDriverIdEditText.getText().toString();
-            checkDriverValidate(userID);
+            SignupActivity.this.checkDriverValidate(userID);
         });
 
 
@@ -132,9 +132,12 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
         //차주 닉네임 중복확인버튼
-        binding.driverLayout.signDriverNameCheck.setOnClickListener(v -> {
+        binding.driverLayout.signDriverNameCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 String userName = binding.driverLayout.signDriverNameEditText.getText().toString();
-                 checkDriverNameValidate(userName);
+                SignupActivity.this.checkDriverNameValidate(userName);
+            }
         });
         //스피너 버튼
         arrayList = new ArrayList<>();
@@ -382,7 +385,6 @@ public class SignupActivity extends AppCompatActivity {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
 
         String carKind = arrayList.get(binding.driverLayout.signCarKindSpinner.getSelectedItemPosition());
-        Log.e("ayhan", "carKind : " + carKind);
 
         retrofitInterface.requestSignUpDriver(binding.driverLayout.signDriverIdEditText.getText().toString(),
                 binding.driverLayout.signDriverPwEditText.getText().toString(),

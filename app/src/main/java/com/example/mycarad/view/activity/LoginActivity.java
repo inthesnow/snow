@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -7,13 +8,19 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.Preference;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
+public class LoginActivity extends AppCompatActivity {
 
     Button loginBtn;
     Button signupBtn;
@@ -31,13 +38,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         idEditView = findViewById(R.id.idEditView);
         passEditView = findViewById(R.id.passEditView);
 
-        loginBtn.setOnClickListener((View.OnClickListener) this);
-        signupBtn.setOnClickListener((View.OnClickListener) this);
+        loginBtn.setOnClickListener(v -> {
+            String id = idEditView.getText().toString();
+            String pass = passEditView.getText().toString();
+            loginRequest(id, pass);
+        });
+        signupBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+            startActivity(intent);
+        });
 
         idEditView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-             //   Log.e("snow", "beforeTextChanged " + s.toString());
             }
 
             @Override
@@ -68,17 +81,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == loginBtn) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (v == signupBtn) {
-            Intent intent = new Intent(this, SignupActivity.class);
-            startActivity(intent);
-        }
-    }
 
     // ID,PW 값이 있을 때 로그인 버튼 활성화 처리
     private void checkLoginButtonEnabled() {
@@ -86,11 +88,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginBtn.setEnabled(isEnabled);
     }
 
-    private void loginRequset() {
-        // api 호출
-        // respont.... -> response == "suceesse"
-        //
-        Preference preference = new Preference();
+    @SuppressLint("CheckResult")
+    private void loginRequest(String id, String password) {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.loginRequest(id, password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    if (response.getSuccesss()) {
+                        Intent intent = new Intent(this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(this, "로그인에 실패 하였습니다.", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+/*      Preference preference = new Preference();
         preference.setId(this, idEditView.getText().toString());
         preference.setPw(this, passEditView.getText().toString());
 
@@ -102,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
              // 로그인 페이지로
         } else {
             // 로그인 api 호출
-        }
+        }*/
     }
 }
 

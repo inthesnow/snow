@@ -14,4 +14,4 @@ public void setSuccess(Boolean success) {
 public DriverWriteResponse(Boolean success) {
         this.success = success;
         }
-        }
+}

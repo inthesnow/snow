@@ -8,6 +8,7 @@ import com.example.mycarad.data.DriverBoardDto;
 import com.example.mycarad.data.DriverReadDto;
 import com.example.mycarad.data.DriverUserDto;
 import com.example.mycarad.data.DriverWriteResponse;
+import com.example.mycarad.data.LogInResponse;
 import com.example.mycarad.data.SignUpResponse;
 
 import io.reactivex.Observable;
@@ -21,6 +22,13 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RetrofitInterface {
+    //로그인
+    @Headers("Accept: application/json")
+    @POST("/Login.php")
+    @FormUrlEncoded
+    Observable<LogInResponse> loginRequest(@Field("userID") String id,
+                                           @Field("userPassword") String password);
+
     //드라이버 회원가입_아이디 중복체크
     @Headers("Accept: application/json")
     @POST("/DriverValidate.php")
