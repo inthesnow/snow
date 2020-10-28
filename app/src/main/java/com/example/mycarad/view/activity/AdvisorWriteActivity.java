@@ -53,7 +53,6 @@ public class AdvisorWriteActivity extends AppCompatActivity {
         binding.writeAdvTitleEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //   Log.e("title", "beforeTextChanged " + s.toString());
             }
 
             @Override
@@ -126,7 +125,6 @@ public class AdvisorWriteActivity extends AppCompatActivity {
         binding.writeAdvWriteEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //   Log.e("write", "beforeTextChanged " + s.toString());
             }
 
             @Override
@@ -140,16 +138,8 @@ public class AdvisorWriteActivity extends AppCompatActivity {
             }
         });
 
-        binding.writeAdvClearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "작성완료", Toast.LENGTH_SHORT).show();
+        binding.writeAdvClearButton.setOnClickListener(view -> requestWriteAdvisor());
 
-                Intent intent = new Intent(getApplicationContext(), AdvisorViewActivity.class);
-                getApplicationContext().startActivity(intent);
-                finish();
-            }
-        });
     }
 
     // title, write 값이 있을 때 로그인 버튼 활성화 처리
@@ -160,8 +150,8 @@ public class AdvisorWriteActivity extends AppCompatActivity {
                 && !(binding.writeAdvConectEdit.getText().toString().isEmpty())
                 && !(binding.writeAdvWriteEdit.getText().toString().isEmpty())
                 && ((binding.writeAdvCarKindCheck.isChecked())
-                    || (binding.writeAdvCarKindCheck2.isChecked())
-                    || (binding.writeAdvCarKindCheck3.isChecked()));
+                || (binding.writeAdvCarKindCheck2.isChecked())
+                || (binding.writeAdvCarKindCheck3.isChecked()));
         binding.writeAdvClearButton.setEnabled(isEnabled);
     }
 
@@ -170,13 +160,14 @@ public class AdvisorWriteActivity extends AppCompatActivity {
     private void requestWriteAdvisor() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
 
-        retrofitInterface.requestWriteDriver(binding.writeAdvTitleEdit.getText().toString(),
+        retrofitInterface.requestWriteAdvisor(binding.writeAdvTitleEdit.getText().toString(),
                 userName,
                 binding.writeAdvNameEdit.getText().toString(),
                 binding.writeAdvAraeEdit.getText().toString(),
                 binding.writeAdvCarKindCheck.getText().toString(),
                 binding.writeAdvConectEdit.getText().toString(),
-                binding.writeAdvWriteEdit.getText().toString())
+                binding.writeAdvWriteEdit.getText().toString(),
+                binding.writeAdvMoneyEdit.getText().toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -203,7 +194,6 @@ public class AdvisorWriteActivity extends AppCompatActivity {
                 .subscribe(response -> {
                     setUpView(response.getResponse().get(0));
                 });
-
     }
 
     private void setUpView(DriverUserInfo driverUserInfo) {

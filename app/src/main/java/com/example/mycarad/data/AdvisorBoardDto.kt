@@ -16,6 +16,5 @@ data class AdvisorBoardInfo(
         val connect : String,
         val detail : String,
         val date : String,
-        val cost : String = "1000"
-
+        val cost : String
 )

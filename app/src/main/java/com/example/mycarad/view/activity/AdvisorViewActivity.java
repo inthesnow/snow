@@ -29,11 +29,13 @@ public class AdvisorViewActivity extends AppCompatActivity {
 
     private ActivityViewAdvisorBinding binding;
     private String writeId;
+    private String userName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+        userName = intent.getExtras().getString("test");
         writeId = intent.getExtras().getString("idx");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_advisor);
 

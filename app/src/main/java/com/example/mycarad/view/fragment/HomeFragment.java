@@ -1,5 +1,7 @@
 package com.example.mycarad.view.fragment;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,13 +18,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
 import com.example.mycarad.data.DummyData;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
 import com.example.mycarad.view.activity.HomeActivity;
 import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;
+import com.example.mycarad.view.adapter.DriverRecyclerViewAdapter;
+import com.example.mycarad.view.adapter.HomeAdvisorRecyclerViewAdapter;
+import com.example.mycarad.view.adapter.HomeDriverRecyclerViewAdapter;
 import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
 
 import java.time.Instant;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class HomeFragment extends Fragment {
+
+    RecyclerView homeDriverRecyclerView;
+    RecyclerView homeAdvisorRecyclerView;
 
     @Override
     public View onCreateView(
@@ -35,16 +48,37 @@ public class HomeFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView advisorRecyclerView = view.findViewById(R.id.homeAdvisorRecyclerView);
-        advisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        homeDriverRecyclerView = view.findViewById(R.id.homeDriverRecyclerView);
+        homeDriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        getDriverBoardList();
+        homeAdvisorRecyclerView = view.findViewById(R.id.homeAdvisorRecyclerView);
+        homeAdvisorRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        getAdvisorBoardList();
 
-        HomeRecyclerViewAdapter advisorAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
-        advisorRecyclerView.setAdapter(advisorAdapter);
+    }
+    @SuppressLint("CheckResult")
+    private void getDriverBoardList() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getDriverBoardList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    HomeDriverRecyclerViewAdapter homeDriverAdapter = new HomeDriverRecyclerViewAdapter(getContext(), response.getResponse(), "test");
+                    homeDriverRecyclerView.setAdapter(homeDriverAdapter);
+                });
 
-        RecyclerView driverRecyclerView = view.findViewById(R.id.homeDriverRecyclerView);
-        driverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
 
-        HomeRecyclerViewAdapter driverAdapter = new HomeRecyclerViewAdapter(getContext(), DummyData.data());
-        driverRecyclerView.setAdapter(driverAdapter);
+    @SuppressLint("CheckResult")
+    private void getAdvisorBoardList() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getAdvisorBoardList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    HomeAdvisorRecyclerViewAdapter homeAdvisorAdapter = new HomeAdvisorRecyclerViewAdapter(getContext(), response.getResponse(), "test");
+                    homeAdvisorRecyclerView.setAdapter(homeAdvisorAdapter);
+                });
+
     }
 }
