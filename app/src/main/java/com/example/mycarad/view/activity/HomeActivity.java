@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.UserType;
 import com.example.mycarad.databinding.ActivityHomeBinding;
 import com.example.mycarad.databinding.ActivitySignupBinding;
 import com.example.mycarad.view.adapter.ContentsPagerAdapter;
@@ -26,11 +27,15 @@ public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
     private FloatingActionButton floatingActionButton;
+    private UserType userType;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+        userType = UserType.DRIVER;
+        userName = "test";
 
         //툴바
         setSupportActionBar(binding.includeAppBar.toolBarHome);
@@ -58,8 +63,19 @@ public class HomeActivity extends AppCompatActivity {
         for (int i = 0; i < count; i++) tab.getTabAt(i).setIcon(images.get(i));
 
         binding.writeFloatingBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), DriverWriteActivity.class);
-            startActivity(intent);
+            if(userType == UserType.DRIVER ) {
+                Intent intent = new Intent(getApplicationContext(), DriverWriteActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("userName", userName);
+                intent.putExtras(extras);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), AdvisorWriteActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("userName", userName);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
         });
     }
 }

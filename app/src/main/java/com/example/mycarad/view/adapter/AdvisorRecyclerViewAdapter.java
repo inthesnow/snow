@@ -65,7 +65,7 @@ public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecy
             tv2.setText(advisorInfo.getDate());
 
             TextView tv3 = itemView.findViewById(R.id.advAreaTextView);
-            tv3.setText(advisorInfo.getArea() + "/" + advisorInfo.getMoney());
+            tv3.setText(advisorInfo.getArea() + "/" + advisorInfo.getCost());
 
             ConstraintLayout advisorItemLayout = itemView.findViewById(R.id.advisorItemLayout);
             advisorItemLayout.setOnClickListener(v -> {
@@ -73,7 +73,7 @@ public class AdvisorRecyclerViewAdapter extends RecyclerView.Adapter<AdvisorRecy
                 /*Log.e("ayhan", "advisorInfo.getIdx() : " + advisorInfo.getIdx());*/
 
                 Bundle extras = new Bundle();
-                extras.putString("writeId", advisorInfo.getIdx());
+                extras.putString("idx", advisorInfo.getIdx());
                 intent.putExtras(extras);
 
                 context.startActivity(intent);

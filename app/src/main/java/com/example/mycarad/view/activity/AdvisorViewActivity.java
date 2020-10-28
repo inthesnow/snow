@@ -34,11 +34,8 @@ public class AdvisorViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        writeId = intent.getExtras().getString("writeId");
+        writeId = intent.getExtras().getString("idx");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_advisor);
-
-        Log.e("ayhan", "id : " + writeId);
-
 
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,7 +61,7 @@ public class AdvisorViewActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    setUpView(response.getResponse().get(0));
+                    setUpView(response.getResponse2().get(0));
 
                 });
 

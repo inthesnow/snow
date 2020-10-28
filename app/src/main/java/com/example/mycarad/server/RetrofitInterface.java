@@ -2,6 +2,7 @@ package com.example.mycarad.server;
 
 import com.example.mycarad.data.AdvisorBoardDto;
 import com.example.mycarad.data.AdvisorReadDto;
+import com.example.mycarad.data.AdvisorUserDto;
 import com.example.mycarad.data.AdvisorWriteResponse;
 import com.example.mycarad.data.DriverBoardDto;
 import com.example.mycarad.data.DriverReadDto;
@@ -87,6 +88,11 @@ public interface RetrofitInterface {
     @Headers("Accept: application/json")
     @GET("/ReadDriver.php")
     Observable<DriverUserDto> getDriverWriteResponse(@Query("userName") String userName);
+
+    //어드바이저 글쓰기 고정값
+    @Headers("Accept: application/json")
+    @GET("/ReadAdvisor.php")
+    Observable<AdvisorUserDto> getAdvisorWriteResponse(@Query("userName") String userName);
 
     //드라이버 글쓰기
     @Headers("Accept: application/json")

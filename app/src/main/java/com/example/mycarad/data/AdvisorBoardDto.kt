@@ -12,10 +12,10 @@ data class AdvisorBoardInfo(
         val userName : String,
         val advName : String,
         val area : String,
-        val carkind : String,
+        val carKind : String,
         val connect : String,
         val detail : String,
         val date : String,
-        val money : String = "1000"
+        val cost : String = "1000"
 
 )

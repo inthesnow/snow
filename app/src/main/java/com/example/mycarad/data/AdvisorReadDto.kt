@@ -3,18 +3,18 @@ package com.example.mycarad.data
 import java.io.Serializable
 
 data class AdvisorReadDto(
-        val response : List<AdvisorReadInfo>
+        val response2 : List<AdvisorReadInfo>
 ) : Serializable
 
 data class AdvisorReadInfo(
         val idx : String,
-        val title :String,
+        val title : String,
         val userName : String,
         val advName : String,
         val area : String,
-        val carkind :String,
-        val connect :String,
+        val carKind : String,
+        val connect : String,
         val detail : String,
         val date : String,
-        val money : String
+        val cost : String = "1000"
 )

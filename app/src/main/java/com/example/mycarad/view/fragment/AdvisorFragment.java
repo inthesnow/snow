@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.AdvisorDummyData;
 import com.example.mycarad.server.ApiClient;
 import com.example.mycarad.server.RetrofitInterface;
 import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;

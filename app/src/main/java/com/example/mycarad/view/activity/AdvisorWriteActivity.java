@@ -1,5 +1,6 @@
 package com.example.mycarad.view.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,62 +18,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.DriverUserInfo;
 import com.example.mycarad.databinding.ActivityWriteAdvisorBinding;
+import com.example.mycarad.server.ApiClient;
+import com.example.mycarad.server.RetrofitInterface;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class AdvisorWriteActivity extends AppCompatActivity {
 
     private ActivityWriteAdvisorBinding binding;
-
-    Button writeClearBtn;
-    EditText titleEdit;
-    EditText areaEdit;
-    EditText conectEdit;
-    EditText writeEdit;
-    EditText moneyEdit;
-    CheckBox carKindCheckBox1;
-    CheckBox carKindCheckBox2;
-    CheckBox carKindCheckBox3;
-
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        userName = intent.getExtras().getString("idx");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_write_advisor);
 
-        writeClearBtn = findViewById(R.id.writeAdvClearButton);
-        titleEdit = findViewById(R.id.writeAdvTitleEdit);
-        areaEdit = findViewById(R.id.writeAdvAraeEdit);
-        conectEdit = findViewById(R.id.writeAdvConectEdit);
-        writeEdit = findViewById(R.id.writeAdvWriteEdit);
-        carKindCheckBox1 = findViewById(R.id.writeAdvCarKindCheck);
-        carKindCheckBox2 = findViewById(R.id.writeAdvCarKindCheck2);
-        carKindCheckBox3 = findViewById(R.id.writeAdvCarKindCheck3);
+        getAdvisorWriteResponse();
 
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        carKindCheckBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        binding.writeAdvCarKindCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkWriteClearBtnEnabled();
             }
         });
 
-        carKindCheckBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                checkWriteClearBtnEnabled();
-            }
-        });
-
-        carKindCheckBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                checkWriteClearBtnEnabled();
-            }
-        });
-
-        titleEdit.addTextChangedListener(new TextWatcher() {
+        binding.writeAdvTitleEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 //   Log.e("title", "beforeTextChanged " + s.toString());
@@ -88,8 +66,36 @@ public class AdvisorWriteActivity extends AppCompatActivity {
 
             }
         });
+        binding.writeAdvNameEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-        areaEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkWriteClearBtnEnabled();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        binding.writeAdvCarKindCheck2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                checkWriteClearBtnEnabled();
+            }
+        });
+
+        binding.writeAdvCarKindCheck3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                checkWriteClearBtnEnabled();
+            }
+        });
+
+        binding.writeAdvAraeEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -103,7 +109,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-        conectEdit.addTextChangedListener(new TextWatcher() {
+        binding.writeAdvConectEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -117,7 +123,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-        writeEdit.addTextChangedListener(new TextWatcher() {
+        binding.writeAdvWriteEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 //   Log.e("write", "beforeTextChanged " + s.toString());
@@ -134,7 +140,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
             }
         });
 
-        writeClearBtn.setOnClickListener(new View.OnClickListener() {
+        binding.writeAdvClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "작성완료", Toast.LENGTH_SHORT).show();
@@ -148,12 +154,60 @@ public class AdvisorWriteActivity extends AppCompatActivity {
 
     // title, write 값이 있을 때 로그인 버튼 활성화 처리
     private void checkWriteClearBtnEnabled() {
-        boolean isEnabled = !(titleEdit.getText().toString().isEmpty())
-                && !(areaEdit.getText().toString().isEmpty())
-                && !(conectEdit.getText().toString().isEmpty())
-                && !(writeEdit.getText().toString().isEmpty())
-                && ((carKindCheckBox1.isChecked()) || (carKindCheckBox2.isChecked()) || (carKindCheckBox3.isChecked()));
-        writeClearBtn.setEnabled(isEnabled);
+        boolean isEnabled = !(binding.writeAdvTitleEdit.getText().toString().isEmpty())
+                && !(binding.writeAdvNameEdit.getText().toString().isEmpty())
+                && !(binding.writeAdvAraeEdit.getText().toString().isEmpty())
+                && !(binding.writeAdvConectEdit.getText().toString().isEmpty())
+                && !(binding.writeAdvWriteEdit.getText().toString().isEmpty())
+                && ((binding.writeAdvCarKindCheck.isChecked())
+                    || (binding.writeAdvCarKindCheck2.isChecked())
+                    || (binding.writeAdvCarKindCheck3.isChecked()));
+        binding.writeAdvClearButton.setEnabled(isEnabled);
+    }
+
+    //게시글 작성완료 체크
+    @SuppressLint("CheckResult")
+    private void requestWriteAdvisor() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+
+        retrofitInterface.requestWriteDriver(binding.writeAdvTitleEdit.getText().toString(),
+                userName,
+                binding.writeAdvNameEdit.getText().toString(),
+                binding.writeAdvAraeEdit.getText().toString(),
+                binding.writeAdvCarKindCheck.getText().toString(),
+                binding.writeAdvConectEdit.getText().toString(),
+                binding.writeAdvWriteEdit.getText().toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                            if (response.getSuccesss()) {
+                                Toast.makeText(this, "작성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(this, "작성에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                );
+
+    }
+
+    @SuppressLint("CheckResult")
+    private void getAdvisorWriteResponse() {
+        RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
+        retrofitInterface.getAdvisorWriteResponse(userName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    setUpView(response.getResponse().get(0));
+                });
+
+    }
+
+    private void setUpView(DriverUserInfo driverUserInfo) {
+        binding.writeAdvNameEdit.setText(driverUserInfo.getCarKind());
     }
 
     //툴바 뒤로 가기
