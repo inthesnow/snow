@@ -1,15 +1,10 @@
 package com.example.mycarad.view.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,17 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.DummyData;
 import com.example.mycarad.server.ApiClient;
 import com.example.mycarad.server.RetrofitInterface;
-import com.example.mycarad.view.activity.HomeActivity;
-import com.example.mycarad.view.adapter.AdvisorRecyclerViewAdapter;
-import com.example.mycarad.view.adapter.DriverRecyclerViewAdapter;
 import com.example.mycarad.view.adapter.HomeAdvisorRecyclerViewAdapter;
 import com.example.mycarad.view.adapter.HomeDriverRecyclerViewAdapter;
-import com.example.mycarad.view.adapter.HomeRecyclerViewAdapter;
-
-import java.time.Instant;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

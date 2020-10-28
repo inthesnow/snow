@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.HomeData;
 import com.example.mycarad.view.activity.HomeActivity;
 
 import java.util.ArrayList;
