@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/myInfoDriverImage"
-        android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/my_myimage_car"
-        app:layout_constraintEnd_toStartOf="@+id/myInfoDriverNameTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:id="@+id/myInfoDriver">
 
-    <TextView
-        android:id="@+id/myInfoDriverNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="닉네임"
-        android:textColor="@color/baseTextColor"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/myInfoDriverImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/myInfoDriverCarKind"/>
+        <ImageView
+            android:id="@+id/myInfoDriverImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/my_myimage_car"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/myInfoDriverNameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/myInfoDriverCarKind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="차종"
-        android:textColor="@color/baseTextColor"
-        app:layout_constraintEnd_toEndOf="@+id/myInfoDriverNameTextView"
-        app:layout_constraintStart_toStartOf="@+id/myInfoDriverNameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverNameTextView" />
+        <TextView
+            android:id="@+id/myInfoDriverNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/baseTextColor"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/myInfoDriverCarKind"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/myInfoDriverImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="닉네임" />
 
-    <TextView
-        android:id="@+id/myInfoDriverCarName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="차명"
-        android:textColor="@color/baseTextColor"
-        app:layout_constraintEnd_toEndOf="@+id/myInfoDriverCarKind"
-        app:layout_constraintStart_toStartOf="@+id/myInfoDriverCarKind"
-        app:layout_constraintTop_toBottomOf="@+id/myInfoDriverCarKind" />
+        <TextView
+            android:id="@+id/myInfoDriverCarKind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/baseTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/myInfoDriverNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/myInfoDriverNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/myInfoDriverNameTextView"
+            tools:text="차종" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/myInfoDriverCarName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/baseTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/myInfoDriverCarKind"
+            app:layout_constraintStart_toStartOf="@+id/myInfoDriverCarKind"
+            app:layout_constraintTop_toBottomOf="@+id/myInfoDriverCarKind"
+            tools:text="차명" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

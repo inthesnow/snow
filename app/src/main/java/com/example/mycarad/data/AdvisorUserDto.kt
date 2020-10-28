@@ -3,14 +3,12 @@ import java.io.Serializable
 
 
 data class AdvisorUserDto(
-        val response : List<DriverUserInfo>
+        val response : List<AdvisorUserInfo>
 ) : Serializable
 
 data class AdvisorUserInfo(
         val userId : String,
         val userPassword :String,
         val userName : String,
-        val carKind : String,
-        val carName :String,
-        val carTune :String
+        val advName : String,
 )

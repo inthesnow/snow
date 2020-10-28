@@ -129,4 +129,13 @@ public interface RetrofitInterface {
             @Field("connect") String connect,
             @Field("detail") String detail,
             @Field("cost") String cost);
+
+    //내 정보 확인
+    @Headers("Accept: application/json")
+    @GET("/ReadDriver.php")
+    Observable<DriverUserDto> getDriverInfoResponse(@Query("userName") String userName);
+
+    @Headers("Accept: application/json")
+    @GET("/ReadAdvisor.php")
+    Observable<AdvisorUserDto> getAdvisorInfoResponse(@Query("userName") String userName);
 }

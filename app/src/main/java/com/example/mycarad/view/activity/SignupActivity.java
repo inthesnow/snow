@@ -451,7 +451,6 @@ public class SignupActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     private void requestSignUpAdvisor() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
-
         retrofitInterface.requestSignUpAdvisor(binding.advisorLayout.signAdIdEditText.getText().toString(),
                 binding.advisorLayout.signAdPwEditText.getText().toString(),
                 binding.advisorLayout.signAdNameEditText.getText().toString(),

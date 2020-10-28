@@ -44,7 +44,7 @@
             android:name=".view.activity.MyActivity"
             android:label="마이 페이지" />
         <activity
-            android:name=".view.activity.MyInfoActivity"
+            android:name=".view.activity.MyInfoChangeActivity"
             android:label="내 정보" />
         <activity
             android:name=".view.activity.MyAppInfoActivity"

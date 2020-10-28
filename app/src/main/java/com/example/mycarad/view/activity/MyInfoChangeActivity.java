@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.mycarad.R;
 import com.example.mycarad.databinding.ActivityMyMyinfoBinding;
 
-public class MyInfoActivity extends AppCompatActivity {
+public class MyInfoChangeActivity extends AppCompatActivity {
     private ActivityMyMyinfoBinding binding;
 
     @Override

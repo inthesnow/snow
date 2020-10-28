@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
+import com.example.mycarad.data.AdvisorUserInfo;
 import com.example.mycarad.data.DriverUserInfo;
 import com.example.mycarad.databinding.ActivityWriteAdvisorBinding;
 import com.example.mycarad.server.ApiClient;
@@ -196,8 +197,8 @@ public class AdvisorWriteActivity extends AppCompatActivity {
                 });
     }
 
-    private void setUpView(DriverUserInfo driverUserInfo) {
-        binding.writeAdvNameEdit.setText(driverUserInfo.getCarKind());
+    private void setUpView(AdvisorUserInfo advisorInfo) {
+        binding.writeAdvNameEdit.setText(advisorInfo.getAdvName());
     }
 
     //툴바 뒤로 가기
