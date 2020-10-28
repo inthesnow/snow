@@ -42,6 +42,7 @@ public class DriverViewActivity extends AppCompatActivity {
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
     //툴바 뒤로 가기
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -53,6 +54,7 @@ public class DriverViewActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @SuppressLint("CheckResult")
     private void getDriverRead() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
@@ -66,11 +68,17 @@ public class DriverViewActivity extends AppCompatActivity {
     }
 
     private void setUpView(DriverReadInfo info) {
-                binding.viewDriverTitleEdit.setText(info.getTitle());
-                if(userName == info.getUserName()) {
-                    binding.viewDriverChangeButton.setVisibility(View.VISIBLE);
-                } else {
-                    binding.viewDriverChangeButton.setVisibility(View.GONE);
-                }
+        binding.viewDriverTitleEdit.setText(info.getTitle());
+        binding.driverUserName.setText(info.getUserName());
+        binding.viewDriverCarKindEdit.setText(info.getCarKind());
+        binding.viewDriverCarNameEdit.setText(info.getCarName());
+        binding.viewDriverTuningEdit.setText(info.getTuneContent());
+        binding.viewDriverConnect.setText(info.getConnect());
+        binding.viewDriverViewEdit.setText(info.getDetail());
+        if (userName == info.getUserName()) {
+            binding.viewDriverChangeButton.setVisibility(View.VISIBLE);
+        } else {
+            binding.viewDriverChangeButton.setVisibility(View.GONE);
+        }
     }
 }

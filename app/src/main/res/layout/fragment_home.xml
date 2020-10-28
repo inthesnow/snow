@@ -15,7 +15,8 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/homeAdvisorRecyclerView"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeAdvisorRecyclerView"
@@ -37,7 +38,7 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/advisorRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/homeAdvisorRecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeDriverRecyclerView"
