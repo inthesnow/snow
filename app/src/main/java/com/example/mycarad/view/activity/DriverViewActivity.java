@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -27,11 +28,13 @@ public class DriverViewActivity extends AppCompatActivity {
 
     private ActivityViewDriverBinding binding;
     private String writeId;
+    private String userName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+        userName = intent.getExtras().getString("test");
         writeId = intent.getExtras().getString("idx");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_driver);
         getDriverRead();
@@ -57,12 +60,17 @@ public class DriverViewActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    setUpView(response.getResponse2().get(0));
+                    setUpView(response.getResponse().get(0));
                 });
 
     }
 
     private void setUpView(DriverReadInfo info) {
                 binding.viewDriverTitleEdit.setText(info.getTitle());
+                if(userName == info.getUserName()) {
+                    binding.viewDriverChangeButton.setVisibility(View.VISIBLE);
+                } else {
+                    binding.viewDriverChangeButton.setVisibility(View.GONE);
+                }
     }
 }

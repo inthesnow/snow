@@ -24,10 +24,12 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
 
     private Context context;
     private ArrayList<DriverBoardInfo> list;
+    private String userName;
 
-    public DriverRecyclerViewAdapter(Context context, List<DriverBoardInfo> driverDataList) {
+    public DriverRecyclerViewAdapter(Context context, List<DriverBoardInfo> driverDataList, String userName) {
         this.context = context;
         this.list = (ArrayList<DriverBoardInfo>) driverDataList;
+        this.userName = userName;
     }
 
     @NonNull
@@ -64,12 +66,13 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
             tv2.setText(driver.getDate());
 
             TextView tv3 = itemView.findViewById(R.id.driverAreaTextView);
-            tv3.setText(driver.getCarName() + "/" + driver.getDate());
+            tv3.setText(driver.getIdx() + "/" + driver.getUserName());
 
             tv1.setOnClickListener(view -> {
                 Intent intent = new Intent(context, DriverViewActivity.class);
                 Bundle extras = new Bundle();
                 extras.putString("idx", driver.getIdx());
+                extras.putString("test", userName);
                 intent.putExtras(extras);
                 context.startActivity(intent);
             });

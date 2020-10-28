@@ -3,7 +3,7 @@ package com.example.mycarad.data
 import java.io.Serializable
 
 data class DriverReadDto(
-        val response2 : List<DriverReadInfo>
+        val response : List<DriverReadInfo>
 ) : Serializable
 
 data class DriverReadInfo(

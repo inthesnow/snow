@@ -47,7 +47,7 @@ public class DriverFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    DriverRecyclerViewAdapter driverAdapter = new DriverRecyclerViewAdapter(getContext(), response.getResponse());
+                    DriverRecyclerViewAdapter driverAdapter = new DriverRecyclerViewAdapter(getContext(), response.getResponse(), "test");
                     driverRecyclerView.setAdapter(driverAdapter);
                 });
 

@@ -74,15 +74,16 @@ public interface RetrofitInterface {
     @GET("/AdvisorBoardList.php")
     Observable<AdvisorBoardDto> getAdvisorBoardList();
 
+    //드라이버 게시글 뷰
+    @Headers("Accept: application/json")
+    @GET("/ReadDriverBoard.php")
+    Observable<DriverReadDto> getDriverRead(@Query("idx") String idx);
+
     //어드바이저 게시글 뷰
     @Headers("Accept: application/json")
     @GET("/ReadAdvisorBoard.php")
     Observable<AdvisorReadDto> getAdvisorRead(@Query("idx") String idx);
 
-    //드라이버 게시글 뷰
-    @Headers("Accept: application/json")
-    @GET("/ReadDriverBoard.php")
-    Observable<DriverReadDto> getDriverRead(@Query("idx") String idx);
 
     //드라이버 글쓰기 고정값
     @Headers("Accept: application/json")

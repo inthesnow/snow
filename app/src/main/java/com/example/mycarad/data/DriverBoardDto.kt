@@ -8,8 +8,10 @@ data class DriverBoardDto(
 
 data class DriverBoardInfo(
         val idx: String,
-        val carName: String,
+        val userName: String,
+        val userPassword : String,
         val title: String,
         val content: String,
         val date: String
+
 )
