@@ -11,4 +11,5 @@ data class AdvisorUserInfo(
         val userPassword :String,
         val userName : String,
         val advName : String,
+        val userType: String = "ADVISOR"
 )

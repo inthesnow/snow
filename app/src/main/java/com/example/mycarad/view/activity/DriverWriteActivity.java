@@ -1,37 +1,23 @@
 package com.example.mycarad.view.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mycarad.R;
-import com.example.mycarad.data.DriverReadDto;
-import com.example.mycarad.data.DriverUserDto;
 import com.example.mycarad.data.DriverUserInfo;
-import com.example.mycarad.data.DriverWriteResponse;
-import com.example.mycarad.data.UserType;
 import com.example.mycarad.databinding.ActivityWriteDriverBinding;
 import com.example.mycarad.server.ApiClient;
 import com.example.mycarad.server.RetrofitInterface;
-import com.example.mycarad.view.adapter.DriverRecyclerViewAdapter;
-
-import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

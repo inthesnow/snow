@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,6 @@ import androidx.databinding.DataBindingUtil;
 import com.example.mycarad.R;
 import com.example.mycarad.data.AdvisorUserInfo;
 import com.example.mycarad.data.DriverUserInfo;
-import com.example.mycarad.data.UserType;
 import com.example.mycarad.databinding.ActivityMyBinding;
 import com.example.mycarad.server.ApiClient;
 import com.example.mycarad.server.RetrofitInterface;
@@ -24,18 +24,19 @@ import io.reactivex.schedulers.Schedulers;
 public class MyActivity extends AppCompatActivity {
 
     private ActivityMyBinding binding;
-    private UserType userType;
-/*    private String userName;*/
+    private String userType;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my);
-/*        Intent intent = getIntent();
-        userName = intent.getExtras().getString("testAdvisor");*/
-        userType = userType.ADVISOR;
+        Intent intent = getIntent();
+        userName = intent.getExtras().getString("userName");
+        userType = intent.getExtras().getString("userType");
 
-        if (userType == UserType.DRIVER) {
+
+        if (userType.equals("Driver")) {
             getDriverInfoResponse();
             binding.includeDriverMyInfo.myInfoDriver.setVisibility(View.VISIBLE);
             binding.includeAdvMyInfo.myInfoAdvisor.setVisibility(View.GONE);
@@ -71,11 +72,15 @@ public class MyActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     private void getDriverInfoResponse() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
-        retrofitInterface.getDriverInfoResponse("test")
+        retrofitInterface.getDriverInfoResponse(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    setUpViewDriver(response.getResponse().get(0));
+                    if(response.getResponse().get(2).equals("userName")) {
+                        setUpViewDriver(response.getResponse().get(0));
+                    } else {
+                        Toast.makeText(this, "데이터를 불러오는데 실패 하였습니다.", Toast.LENGTH_SHORT).show();
+                    }
                 });
     }
 

@@ -97,6 +97,12 @@ public class LoginActivity extends AppCompatActivity {
                 .subscribe(response -> {
                     if (response.getSuccesss()) {
                         Intent intent = new Intent(this, HomeActivity.class);
+                        Bundle extras = new Bundle();
+                        String userName = response.getUserName();
+                        String userType = response.getUserType();
+                        extras.putString("userName", userName);
+                        extras.putString("userType", userType);
+                        intent.putExtras(extras);
                         startActivity(intent);
                         finish();
                     } else {

@@ -40,7 +40,6 @@ public class AdvisorWriteActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_write_advisor);
 
         getAdvisorWriteResponse();
-
         setSupportActionBar(binding.includeAppBar.toolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

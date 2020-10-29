@@ -397,6 +397,11 @@ public class SignupActivity extends AppCompatActivity {
                             if (response.getSuccesss()) {
                                 Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(this, HomeActivity.class);
+                                Bundle extras = new Bundle();
+                                String userName = binding.driverLayout.signDriverNameEditText.getText().toString();
+                                String userType = "Driver";
+                                extras.putString("userName", userName);
+                                extras.putString("userType", userType);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -461,6 +466,11 @@ public class SignupActivity extends AppCompatActivity {
                             if (response.getSuccesss()) {
                                 Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(this, HomeActivity.class);
+                                Bundle extras = new Bundle();
+                                String userName = response.getUserName();
+                                String userType = response.getUserType();
+                                extras.putString("userName", userName);
+                                extras.putString("userType", userType);
                                 startActivity(intent);
                                 finish();
                             } else {

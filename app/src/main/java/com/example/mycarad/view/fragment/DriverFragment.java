@@ -50,6 +50,5 @@ public class DriverFragment extends Fragment {
                     DriverRecyclerViewAdapter driverAdapter = new DriverRecyclerViewAdapter(getContext(), response.getResponse(), "test");
                     driverRecyclerView.setAdapter(driverAdapter);
                 });
-
     }
 }

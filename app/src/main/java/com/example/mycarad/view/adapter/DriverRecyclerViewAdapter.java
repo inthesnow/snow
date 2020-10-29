@@ -76,7 +76,6 @@ public class DriverRecyclerViewAdapter extends RecyclerView.Adapter<DriverRecycl
                 intent.putExtras(extras);
                 context.startActivity(intent);
             });
-
         }
 
 
