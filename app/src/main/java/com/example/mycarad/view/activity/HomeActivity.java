@@ -26,7 +26,6 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
-    private FloatingActionButton floatingActionButton;
     private UserType userType;
     private String userName;
 
@@ -34,8 +33,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-        userType = UserType.DRIVER;
-        userName = "test";
+        userType = UserType.ADVISOR;
+        userName = "testAdvisor";
 
         //툴바
         setSupportActionBar(binding.includeAppBar.toolBarHome);

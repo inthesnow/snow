@@ -25,15 +25,15 @@ public class MyActivity extends AppCompatActivity {
 
     private ActivityMyBinding binding;
     private UserType userType;
-    //private String userName;
+/*    private String userName;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my);
 /*        Intent intent = getIntent();
-        userName = intent.getExtras().getString("test");*/
-        userType = userType.DRIVER;
+        userName = intent.getExtras().getString("testAdvisor");*/
+        userType = userType.ADVISOR;
 
         if (userType == UserType.DRIVER) {
             getDriverInfoResponse();
@@ -87,7 +87,7 @@ public class MyActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     private void getAdvisorInfoResponse() {
         RetrofitInterface retrofitInterface = ApiClient.getClient().create(RetrofitInterface.class);
-        retrofitInterface.getAdvisorInfoResponse("test")
+        retrofitInterface.getAdvisorInfoResponse("testAdvisor")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

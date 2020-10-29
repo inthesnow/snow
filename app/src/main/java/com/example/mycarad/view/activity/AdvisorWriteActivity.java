@@ -36,7 +36,7 @@ public class AdvisorWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        userName = intent.getExtras().getString("idx");
+        userName = intent.getExtras().getString("userName");
         binding = DataBindingUtil.setContentView(this, R.layout.activity_write_advisor);
 
         getAdvisorWriteResponse();

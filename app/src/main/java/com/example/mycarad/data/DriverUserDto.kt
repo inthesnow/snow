@@ -11,6 +11,5 @@ data class DriverUserInfo(
         val userPassword :String,
         val userName : String,
         val carKind : String,
-        val carName :String,
-        val carTune :String
+        val carName :String
 )
